@@ -55,7 +55,9 @@ const DiscordCard = () => {
         userAddress: connectedAddress,
         discordId: id,
         publicKey,
-        signature
+        signature,
+        // lets the backend check with Discord that this account is really yours
+        accessToken: res.accessTokenUser.access_token
       });
     });
   };

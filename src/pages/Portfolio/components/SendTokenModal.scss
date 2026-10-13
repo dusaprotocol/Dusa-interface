@@ -1,0 +1,212 @@
+.SendTokenModal {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-top: 1rem;
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    label {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--second-color);
+    }
+
+    .token-selector {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1rem;
+      background-color: var(--hover-bg);
+      border: 1px solid var(--secondary-color-transp);
+      border-radius: 0.5rem;
+      font-size: 0.9rem;
+      color: inherit;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        border-color: var(--secondary-color);
+      }
+
+      &.placeholder {
+        color: rgba(213, 213, 213, 0.5);
+      }
+
+      .token-logo {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        margin-right: 0.75rem;
+      }
+
+      .token-info {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: 0.25rem;
+
+        .token-symbol {
+          font-weight: 500;
+        }
+
+        .token-balance {
+          font-size: 0.8rem;
+          opacity: 0.7;
+        }
+      }
+
+      .dropdown-icon {
+        color: var(--secondary-color);
+        opacity: 0.7;
+      }
+    }
+
+    .recent-addresses {
+      .recent-addresses-label {
+        font-size: 0.8rem;
+        color: var(--second-color);
+        margin-bottom: 0.5rem;
+        display: block;
+      }
+
+      .recent-addresses-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .recent-address-chip {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 0.75rem;
+        background-color: var(--hover-bg);
+        border: 1px solid var(--secondary-color-transp);
+        border-radius: 0.5rem;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &:hover {
+          border-color: var(--secondary-color);
+          background-color: var(--secondary-color-transp);
+        }
+
+        &.selected {
+          border-color: var(--secondary-color);
+          background-color: var(--secondary-color-transp);
+        }
+
+        .address-text {
+          font-family: monospace;
+          font-size: 0.8rem;
+        }
+
+        .remove-address-btn {
+          background: none;
+          border: none;
+          color: rgba(251, 46, 46, 0.7);
+          cursor: pointer;
+          padding: 0.2rem;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.2s ease;
+
+          &:hover {
+            color: rgba(251, 46, 46, 1);
+            background-color: rgba(251, 46, 46, 0.1);
+          }
+
+          svg {
+            font-size: 0.7rem;
+          }
+        }
+      }
+    }
+
+    .address-input,
+    .amount-input {
+      padding: 0.75rem 1rem;
+      background-color: var(--hover-bg);
+      border: 1px solid var(--secondary-color-transp);
+      border-radius: 0.5rem;
+      font-size: 0.9rem;
+      color: inherit;
+      caret-color: var(--secondary-color);
+
+      &:focus {
+        border-color: var(--secondary-color);
+        outline: none;
+      }
+
+      &::placeholder {
+        color: rgba(213, 213, 213, 0.5);
+      }
+    }
+
+    .amount-input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      .amount-input {
+        flex: 1;
+        padding-right: 4rem;
+      }
+
+      .token-symbol {
+        position: absolute;
+        right: 1rem;
+        font-size: 0.85rem;
+        color: var(--second-color);
+        pointer-events: none;
+      }
+    }
+
+    .max-button-wrapper {
+      display: flex;
+      justify-content: flex-end;
+
+      .max-button {
+        background: none;
+        border: none;
+        color: var(--secondary-color);
+        font-size: 0.8rem;
+        font-weight: 500;
+        cursor: pointer;
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.25rem;
+
+        &:hover {
+          background-color: var(--secondary-color-transp);
+        }
+      }
+    }
+  }
+
+  .error-message {
+    background-color: rgba(251, 46, 46, 0.1);
+    border: 1px solid rgba(251, 46, 46, 0.3);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    color: rgba(251, 46, 46, 0.9);
+    font-size: 0.85rem;
+  }
+
+  .modal-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 1rem;
+
+    .Button {
+      min-width: 120px;
+    }
+  }
+}

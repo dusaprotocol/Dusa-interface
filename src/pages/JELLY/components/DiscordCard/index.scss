@@ -1,0 +1,23 @@
+.DiscordCard {
+  display: flex;
+  flex-direction: column;
+
+  .discord-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 1rem 1rem 1rem;
+
+    > span {
+      color: var(--second-color);
+    }
+
+    .error {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--red);
+    }
+  }
+}

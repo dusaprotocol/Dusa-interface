@@ -1,0 +1,64 @@
+.SingleSlide {
+  display: flex;
+
+  .slide-row {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    gap: 1rem;
+
+    .slide-col {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      gap: 0.5rem;
+    }
+
+    .slide-range-input {
+      height: 30px;
+      cursor: pointer;
+    }
+
+    .slide-value-input-container {
+      display: flex;
+      width: 60px;
+      height: 30px;
+      border: 1px solid var(--white);
+      border-radius: 0.25rem;
+      padding: 0.25rem 0.25rem;
+
+      .slide-value-input {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        font-weight: 500;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+
+  .preselected-values {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 1rem;
+
+    .preselected-value {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-grow: 1;
+      font-weight: 500;
+      border: 1px solid var(--white);
+      border-radius: 0.25rem;
+      padding: 0.25rem 0.5rem;
+      min-width: 50px;
+      cursor: pointer;
+    }
+  }
+}

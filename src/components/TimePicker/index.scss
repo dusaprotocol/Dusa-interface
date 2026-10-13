@@ -1,0 +1,19 @@
+.time-window-select {
+  display: flex;
+  gap: 0.25rem;
+
+  button {
+    height: 2.25rem;
+    background-color: transparent;
+    padding: 0 0.75rem;
+    transition: all 0.2s ease;
+    color: var(--second-color);
+    border: 1px solid var(--secondary-color-transp);
+    border-radius: 0.5rem;
+
+    &.active {
+      color: var(--main-color);
+      border: 1px solid var(--main-color);
+    }
+  }
+}

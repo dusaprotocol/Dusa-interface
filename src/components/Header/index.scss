@@ -1,0 +1,210 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1.5rem;
+  position: sticky;
+  height: 66px;
+  top: 0;
+  z-index: 100;
+  background-color: var(--main-bg);
+
+  &.scroll {
+    border-bottom: 1px solid var(--secondary-color);
+  }
+
+  a {
+    color: var(--main-color);
+    transition: background-color 0.1s ease-out;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+
+  .link-pages {
+    display: flex;
+    align-items: center;
+
+    .logo-link {
+      display: grid;
+      place-items: center;
+      img {
+        height: 40px;
+        margin-top: 4px;
+      }
+    }
+
+    nav {
+      display: flex;
+      padding: 0 20px;
+      height: 50px;
+      white-space: nowrap;
+
+      > a,
+      > button {
+        margin: 0 1rem;
+      }
+
+      .link-page,
+      .other {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+      }
+
+      .link-page {
+        border-top: 4px solid transparent;
+
+        &.active {
+          color: var(--secondary-color);
+        }
+        &:hover {
+          border-top: 4px var(--secondary-color) solid;
+        }
+
+        svg {
+          font-size: 0.8rem;
+        }
+      }
+
+      .other {
+        position: relative;
+        border-top: 4px solid transparent;
+        cursor: pointer;
+
+        &:hover {
+          color: var(--secondary-color);
+        }
+
+        // .other-dropdown {
+        //   position: absolute;
+        //   top: 100%;
+        //   right: 0;
+        //   display: flex;
+        //   flex-direction: column;
+        //   min-width: 100px;
+        //   background-color: var(--main-bg);
+        //   border: 1px solid var(--secondary-color-transp);
+        //   border-radius: 0.25rem;
+
+        // }
+      }
+
+      .trigger {
+        border-top: 4px solid transparent;
+        font-size: 1rem;
+
+        &:hover {
+          color: var(--secondary-color);
+        }
+      }
+
+      .links-container {
+        display: flex;
+        flex-direction: column;
+        .dropdown-link {
+          padding: 0.75rem;
+          border-radius: 0.5rem;
+          min-width: 150px;
+          text-align: left;
+
+          &:hover {
+            background-color: var(--hover-bg);
+          }
+
+          svg {
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+
+  .utils {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .buy-dusa {
+      display: flex;
+      align-items: center;
+      margin: 0 5px;
+
+      img {
+        height: 1.5rem;
+        border-radius: 50%;
+      }
+
+      span {
+        padding: 0 0.25rem;
+      }
+    }
+
+    .faucet {
+      display: flex;
+      align-items: center;
+      background-color: var(--secondary-bg);
+      cursor: pointer;
+      border: 1px solid transparent;
+      border-radius: 5px;
+      height: 38px;
+      white-space: nowrap;
+      padding: 0 1rem;
+
+      &:hover {
+        border: 1px solid var(--secondary-color);
+      }
+    }
+  }
+
+  .onchain {
+    padding: 10px;
+    border-radius: 5px;
+    cursor: default !important;
+
+    svg {
+      cursor: default;
+    }
+
+    span {
+      font-weight: 500;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .Header {
+    padding: 0.5rem 1rem;
+
+    nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      background-color: var(--main-bg);
+      border-top: 1px solid var(--hover-bg);
+      box-shadow: rgba(0, 0, 0, 0.211) 0px 6px 10px;
+      z-index: 500;
+      padding: 0 !important;
+
+      > a,
+      > button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 0.25rem !important;
+        width: 100%;
+      }
+    }
+
+    .logo-link span {
+      display: none;
+    }
+
+    .other-dropdown {
+      top: -250% !important;
+    }
+  }
+}

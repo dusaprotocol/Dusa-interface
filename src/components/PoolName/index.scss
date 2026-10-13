@@ -1,0 +1,29 @@
+.TokenName {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+
+  .logo-symbol-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+
+    .token-logo-container {
+      display: flex;
+      align-items: center;
+      .token-logo {
+        &:last-of-type {
+          margin-left: -0.3rem;
+        }
+      }
+    }
+
+    .symbols {
+      font-weight: 700;
+      white-space: nowrap;
+    }
+  }
+}

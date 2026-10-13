@@ -1,0 +1,434 @@
+.SwapCard {
+  flex: 0 1 auto;
+
+  &.feature {
+    background-color: var(--main-bg);
+
+    .header-feature {
+      justify-content: space-between;
+      position: relative;
+      padding: 0.5rem 1rem 1rem 1rem;
+
+      h2 {
+        margin-left: 0;
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+
+      > div > {
+        button {
+          font-size: 1rem;
+          padding: 0.25rem 0.75rem;
+          border-radius: 1rem;
+        }
+      }
+
+      .active-card {
+        background-color: var(--secondary-bg);
+      }
+
+      .chart-settings {
+        display: flex;
+        gap: 0.75rem;
+        > button {
+          padding: 0.25rem 0;
+          width: 20px;
+        }
+      }
+
+      .chart-icon {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        fill: var(--main-color);
+        cursor: pointer;
+      }
+    }
+
+    .container-feature {
+      padding-top: 0;
+
+      .TokenInput {
+        background-color: var(--hover-bg);
+      }
+
+      .invertTokensLO {
+        display: block;
+        margin: 0.5rem auto;
+        position: relative;
+        width: 100%;
+
+        &::before {
+          content: '';
+          position: absolute;
+          width: 100%;
+          top: calc(50% - 1px);
+          height: 3px;
+          background: var(--secondary-bg);
+        }
+
+        .InvertTokens {
+          position: relative;
+          background-color: var(--main-bg);
+          border: 3px solid var(--secondary-bg);
+
+          padding: 4px;
+          border-radius: 0.5rem;
+          height: 32px;
+          width: 32px;
+        }
+      }
+
+      .toggle-container {
+        display: flex;
+        align-items: center;
+        padding: 0.5rem 0;
+
+        span {
+          padding: 0 0.5rem;
+        }
+      }
+
+      > button {
+        margin-top: 0.5rem;
+      }
+    }
+
+    .advanced {
+      display: flex;
+      gap: 0.25rem;
+      margin-top: 0.25rem;
+    }
+
+    .limit-container {
+      flex-grow: 1;
+    }
+
+    .limit-container,
+    .expiry {
+      min-width: 140px;
+      font-size: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background-color: var(--hover-bg);
+      border-radius: 0.5rem;
+      border: 1px solid transparent;
+      padding: 0.5rem 1rem;
+
+      &:hover {
+        border: 1px solid var(--secondary-color);
+      }
+
+      &.disabled-limit-section {
+        opacity: 0.5;
+        filter: blur(1px);
+        pointer-events: none;
+        cursor: not-allowed;
+
+        &:hover {
+          border: 1px solid transparent;
+        }
+      }
+
+      .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        font-size: 0.7rem;
+
+        > div {
+          display: flex;
+          column-gap: 0.25rem;
+          flex-wrap: wrap;
+        }
+
+        button {
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+          background: transparent;
+          color: var(--main-color);
+          padding: 0.25rem 0.5rem;
+          border: 1px solid var(--secondary-color);
+          border-radius: 2rem;
+          font-size: 0.7rem;
+          white-space: nowrap;
+        }
+
+        .limitValueDiff {
+          &.above {
+            color: rgb(49, 208, 170);
+          }
+          &.below {
+            color: var(--secondary-color);
+          }
+        }
+      }
+
+      .right {
+        display: flex;
+        flex-grow: 1;
+
+        .Input-wrapper {
+          flex-grow: 1;
+
+          input {
+            width: 100%;
+            height: 40px;
+            color: var(--main-color);
+            font-size: 1rem;
+            padding: 0;
+            border: none;
+            flex-grow: 1 !important;
+          }
+        }
+      }
+
+      .bottom {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        font-size: 0.8rem;
+
+        > div {
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+          padding: 0.5rem;
+          user-select: none;
+        }
+
+        span {
+          cursor: pointer;
+          padding: 0 0.5rem;
+          user-select: none;
+        }
+      }
+    }
+  }
+
+  &.growSwapCard {
+    justify-content: flex-start;
+    flex-grow: 1;
+  }
+  &.emptySwapCard {
+    border-radius: 0.5rem !important;
+    max-width: 500px !important;
+  }
+
+  .error-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.5rem;
+
+    .error-info {
+      border-radius: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--red);
+    }
+  }
+
+  .error-info-link {
+    color: var(--primary-color);
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: 500;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--primary-color-hover, var(--primary-color));
+      text-decoration: underline;
+    }
+  }
+
+  .info-container {
+    display: flex;
+    gap: 0.5rem;
+    background-color: var(--secondary-bg);
+    padding: 0.25rem 1rem;
+    border-radius: 0.5rem;
+    margin-top: 0.25rem;
+  }
+
+  .no-pair {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.25rem;
+
+    a {
+      width: 100%;
+    }
+  }
+
+  .swap-details {
+    margin-top: 0.25rem;
+    border-radius: 0.5rem;
+    background-color: var(--secondary-bg);
+  }
+
+  .show-details-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem;
+
+    span:first-child {
+      flex-grow: 1;
+    }
+  }
+}
+
+// Used in AddLiquidity
+.swap-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 0.9rem;
+
+  > div {
+    padding: 0.5rem;
+  }
+
+  .details {
+    .detail {
+      display: flex;
+      justify-content: space-between;
+      margin: 0.25rem 0;
+
+      &.red {
+        color: #ff4136;
+      }
+      &.orange {
+        color: #ff851b;
+      }
+
+      .slippage-input {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        svg {
+          width: 11px;
+          cursor: default;
+        }
+        input {
+          width: 25px;
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  .swap-route {
+    .route-details {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+
+      [data-prefix='fas'] {
+        cursor: default;
+        margin: 0 0.25rem;
+      }
+      .route-step {
+        display: flex;
+        align-items: center;
+
+        img:last-of-type {
+          transform: translateX(-0.25rem);
+        }
+
+        .binStep {
+          font-size: 0.9rem;
+          color: var(--second-color);
+          background-color: var(--hover-bg);
+          padding: 0.25rem 0.5rem;
+          border-radius: 0.5rem;
+          margin-left: 0.25rem;
+        }
+      }
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}
+
+.pro-interface .SwapCard {
+  border: 1px solid var(--secondary-color-transp) !important;
+
+  &.feature {
+    border-radius: 0;
+    border: none;
+    min-width: 475px;
+  }
+
+  .buttons-container,
+  .dca-buttons {
+    button:not(.close) {
+      border: 1px solid transparent !important;
+      background-color: var(--secondary-bg) !important;
+
+      &:hover {
+        border: 1px solid var(--secondary-color) !important;
+      }
+    }
+  }
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 0.25rem;
+
+  .warning-inputs {
+    color: red;
+  }
+}
+
+.price-impact-warning {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-top: 1rem;
+
+  .price-impact-value {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    .pill {
+      font-size: 0.9rem;
+      color: var(--second-color);
+      background-color: var(--secondary-bg);
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.5rem;
+    }
+  }
+  .price-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .price-impact-warning-buttons {
+    display: flex;
+    gap: 0.25rem;
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .SwapCard:not(.pro) {
+    min-width: 430px;
+  }
+
+  .pro-interface .SwapCard {
+    max-width: none;
+  }
+}

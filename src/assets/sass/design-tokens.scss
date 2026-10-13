@@ -1,0 +1,237 @@
+// Design Token System for Improved Incentivize & Bribes Pages
+// Based on existing CSS variables with enhanced tokens for modern UI
+
+:root {
+  // Layout & Spacing
+  --layout-gap-xs: 0.5rem;       // 8px
+  --layout-gap-sm: 0.75rem;      // 12px
+  --layout-gap-md: 1rem;         // 16px
+  --layout-gap-lg: 1.5rem;       // 24px
+  --layout-gap-xl: 2rem;         // 32px
+  --layout-gap-2xl: 3rem;        // 48px
+  
+  --container-padding-sm: 1rem;  // 16px
+  --container-padding-md: 1.5rem; // 24px
+  --container-padding-lg: 2rem;  // 32px
+  
+  // Border Radius
+  --radius-xs: 0.25rem;          // 4px
+  --radius-sm: 0.5rem;           // 8px
+  --radius-md: 0.75rem;          // 12px
+  --radius-lg: 1rem;             // 16px
+  --radius-xl: 1.5rem;           // 24px
+  
+  // Shadows & Elevation
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.15);
+  
+  // Typography
+  --font-size-xs: 0.75rem;       // 12px
+  --font-size-sm: 0.875rem;      // 14px
+  --font-size-md: 1rem;          // 16px
+  --font-size-lg: 1.125rem;      // 18px
+  --font-size-xl: 1.25rem;       // 20px
+  --font-size-2xl: 1.5rem;       // 24px
+  --font-size-3xl: 2rem;         // 32px
+  
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+  
+  // Transitions & Animations
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  // Grid & Layout
+  --grid-gap: var(--layout-gap-lg);
+  --grid-gap-mobile: var(--layout-gap-md);
+  --grid-columns-sm: repeat(1, 1fr);
+  --grid-columns-md: repeat(auto-fit, minmax(280px, 1fr));
+  --grid-columns-lg: repeat(auto-fit, minmax(300px, 1fr));
+  --grid-columns-xl: repeat(auto-fit, minmax(320px, 1fr));
+  
+  // Container widths
+  --container-max-width: 1400px;
+  --container-width-sm: 100%;
+  --container-width-md: 90%;
+  --container-width-lg: 85%;
+  
+  // Component Specific Tokens
+  --card-border: 1px solid var(--border-color);
+  --card-background: var(--container-bg);
+  --card-background-hover: var(--hover-bg);
+  --card-backdrop-filter: blur(10px);
+  
+  --metric-value-size: var(--font-size-lg);
+  --metric-label-size: var(--font-size-sm);
+  --metric-gap: var(--layout-gap-sm);
+  
+  // Interactive States
+  --interactive-hover-transform: translateY(-2px);
+  --interactive-active-transform: translateY(0);
+  --interactive-focus-ring: 0 0 0 2px var(--secondary-color);
+  
+  // Status Colors (enhanced)
+  --success-bg: #31d07920;
+  --success-border: #31d079;
+  --warning-bg: #fbbf2420;
+  --warning-border: #fbbf24;
+  --error-bg: #ff4d4f20;
+  --error-border: #ff4d4f;
+  
+  // Gradient Effects
+  --gradient-primary: linear-gradient(135deg, var(--secondary-color) 0%, var(--fourth-color) 100%);
+  --gradient-card: linear-gradient(135deg, var(--container-bg) 0%, rgba(19, 33, 64, 0.8) 100%);
+  --gradient-overlay: linear-gradient(180deg, transparent 0%, rgba(7, 22, 45, 0.3) 100%);
+}
+
+// Dark theme enhancements
+[data-theme='Dusa'] {
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+// Component Mixins
+@mixin card-base {
+  background: var(--card-background);
+  border: var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: var(--container-padding-md);
+  backdrop-filter: var(--card-backdrop-filter);
+  box-shadow: var(--shadow-card);
+  transition: all var(--transition-normal);
+}
+
+@mixin card-hover {
+  &:hover {
+    transform: var(--interactive-hover-transform);
+    box-shadow: var(--shadow-card-hover);
+    background: var(--card-background-hover);
+  }
+}
+
+@mixin metric-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--metric-gap);
+  align-items: flex-start;
+}
+
+@mixin metric-value {
+  font-size: var(--metric-value-size);
+  font-weight: var(--font-weight-semibold);
+  color: var(--main-color);
+  line-height: var(--line-height-tight);
+}
+
+@mixin metric-label {
+  font-size: var(--metric-label-size);
+  font-weight: var(--font-weight-normal);
+  color: var(--second-color);
+  opacity: 0.8;
+}
+
+@mixin grid-layout {
+  display: grid;
+  gap: var(--grid-gap);
+  grid-template-columns: var(--grid-columns-lg);
+  
+  @media (max-width: 1200px) {
+    grid-template-columns: var(--grid-columns-md);
+  }
+  
+  @media (max-width: 768px) {
+    gap: var(--grid-gap-mobile);
+    grid-template-columns: var(--grid-columns-sm);
+  }
+}
+
+@mixin flex-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-gap-lg);
+  
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+@mixin container-responsive {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding-sm);
+  
+  @media (min-width: 768px) {
+    padding: 0 var(--container-padding-md);
+  }
+  
+  @media (min-width: 1024px) {
+    padding: 0 var(--container-padding-lg);
+  }
+}
+
+@mixin interactive-element {
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  position: relative;
+  
+  &:hover {
+    transform: var(--interactive-hover-transform);
+  }
+  
+  &:active {
+    transform: var(--interactive-active-transform);
+  }
+  
+  &:focus-visible {
+    outline: none;
+    box-shadow: var(--interactive-focus-ring);
+  }
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+    
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+@mixin button-base {
+  @include interactive-element;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--layout-gap-xs);
+  padding: var(--layout-gap-sm) var(--layout-gap-md);
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-tight);
+  border: 1px solid transparent;
+  min-height: 40px;
+  
+  &.small {
+    padding: var(--layout-gap-xs) var(--layout-gap-sm);
+    font-size: var(--font-size-xs);
+    min-height: 32px;
+  }
+  
+  &.large {
+    padding: var(--layout-gap-md) var(--layout-gap-lg);
+    font-size: var(--font-size-md);
+    min-height: 48px;
+  }
+}

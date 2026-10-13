@@ -1,0 +1,58 @@
+.Withdraw {
+  .withdraw-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+
+
+
+  .different-customizable-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+
+    .different-customizable {
+      display: flex;
+      flex-wrap: wrap;
+      flex-grow: 1;
+      gap: 1rem;
+      padding: 0.5rem;
+      background-color: var(--hover-bg);
+      border-radius: 0.5rem;
+      border: 1px solid var(--secondary-color-transp);
+      cursor: pointer;
+
+      &:hover {
+        border: 1px solid var(--secondary-color);
+      }
+      &.active {
+        border: 1px solid var(--secondary-color);
+      }
+
+      .container-buttons-remove-AL {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        width: 100%;
+      }
+    }
+
+    .different-customizable-name {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .different-customizable-amount {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .customizable-type {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

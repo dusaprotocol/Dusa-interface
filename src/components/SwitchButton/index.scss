@@ -1,0 +1,27 @@
+.SwitchButton {
+  display: flex;
+  align-items: center;
+  height: 20px;
+  width: 40px;
+  border-radius: 1rem;
+  border: 1px solid var(--secondary-color);
+  cursor: pointer;
+
+  .switch {
+    position: relative;
+    left: 1px;
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    border-radius: 50%;
+  }
+
+  &.active {
+    background-color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+
+    .switch {
+      left: 21px;
+    }
+  }
+}

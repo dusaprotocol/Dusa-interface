@@ -1,0 +1,93 @@
+.ButtonAllowance {
+  display: flex;
+
+  > button {
+    padding: 0.75rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    white-space: break-spaces;
+    user-select: none;
+    position: relative;
+    width: 100%;
+    border-radius: 0.5rem 0 0 0.5rem;
+
+    &:active:not(:disabled) {
+      transform: translateY(1px);
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.75;
+    }
+
+    background-color: var(--secondary-color);
+    color: var(--white);
+
+    &:hover:not(:disabled) {
+      filter: brightness(1.1);
+    }
+
+    // &:disabled {
+    //   color: #aaa;
+    // }
+
+    .Spinner {
+      position: absolute;
+      top: 0;
+      left: 8px;
+      width: 15px;
+      height: 100%;
+    }
+  }
+
+  button:last-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    width: 30px;
+    background-color: var(--secondary-color);
+    border-radius: 0 0.5rem 0.5rem 0;
+    border-left: 2px solid var(--secondary-color-transp);
+    z-index: 2;
+
+    &:hover:not(:disabled) {
+      filter: brightness(1.1);
+    }
+  }
+}
+.Modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  .Modal-body-container {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1rem;
+    gap: 0.25rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--secondary-color-transp);
+    background-color: var(--main-bg);
+
+    &:hover {
+      border: 1px solid var(--secondary-color);
+      filter: brightness(1.2);
+    }
+
+    span:first-child {
+      font-size: 1.2rem;
+      text-align: left;
+      font-weight: 600;
+    }
+    span:last-child {
+      text-align: left;
+      opacity: 0.8;
+    }
+
+    &.active-body-container {
+      filter: brightness(1.3);
+      border: 1px solid var(--secondary-color);
+    }
+  }
+}

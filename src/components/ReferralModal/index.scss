@@ -1,0 +1,37 @@
+.ReferralModal {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  .referral-link-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+    background-color: var(--hover-bg);
+    border-radius: 0.5rem;
+    border: 1px solid var(--border-color);
+
+    > span {
+      font-size: 0.875rem;
+      color: var(--main-color);
+      opacity: 0.8;
+    }
+
+    > code {
+      font-family: monospace;
+      font-size: 0.875rem;
+      color: var(--secondary-color);
+      word-break: break-all;
+      padding: 0.5rem;
+      background-color: var(--bg-color);
+      border-radius: 0.25rem;
+    }
+  }
+
+  .copy-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}

@@ -1,0 +1,26 @@
+.Wrapped {
+  display: flex;
+  min-height: 100%;
+  width: 100%;
+  background-color: var(--main-bg);
+  overflow: hidden;
+}
+
+.Wrapped-connect {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+
+  .wrapped-infos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    .wrapped-title {
+      font-size: 2rem;
+      font-weight: 600;
+    }
+  }
+}

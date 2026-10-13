@@ -1,0 +1,225 @@
+.TokenModal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 90%;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  overflow-y: auto;
+
+  .search-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    svg {
+      position: absolute;
+      opacity: 0.5;
+      z-index: 100000;
+
+      &.search-icon {
+        margin-left: 0.75rem;
+      }
+
+      &.clear-icon {
+        right: 0.75rem;
+        cursor: pointer;
+      }
+    }
+
+    .search-input {
+      padding: 0.75rem 2.25rem;
+      width: 100%;
+      background-color: var(--hover-bg);
+      border-radius: 0.5rem;
+      border: 1px solid var(--secondary-color-transp);
+      caret-color: var(--secondary-color);
+      font-size: 1rem;
+
+      &:focus {
+        border: 1px solid var(--secondary-color);
+        outline-width: 0;
+      }
+    }
+  }
+
+  .fav-tokens-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    .fav-token {
+      padding: 0.5rem 0.75rem;
+      border: 1px solid var(--secondary-color-transp);
+      border-radius: 0.5rem;
+      cursor: pointer;
+
+      &.active-token {
+        border: 1px solid var(--secondary-color);
+      }
+      &.disabled-token {
+        span {
+          opacity: 0.5;
+        }
+        cursor: default;
+      }
+    }
+  }
+
+  .token-list {
+    max-height: 500px;
+    padding-right: 0.5rem;
+    overflow-y: auto;
+
+    .token {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0rem 0.5rem 0rem;
+      cursor: pointer;
+
+      &:not(.active):hover {
+        background-color: var(--hover-bg);
+      }
+
+      .heart-svg {
+        padding: 0.5rem;
+        transition: transform 0.3s ease 0s;
+        color: var(--secondary-color);
+        transition: transform 0.3s ease 0s;
+        cursor: pointer;
+
+        svg {
+          width: 20px;
+        }
+      }
+
+      > div {
+        display: flex;
+        align-items: center;
+        border-radius: 5px;
+      }
+
+      .balance {
+        display: flex;
+        align-items: end;
+        flex-direction: column;
+        font-size: 0.9rem;
+        color: var(--second-color);
+        transform: translateX(0px);
+        transition: transform 0.3s ease 0s;
+        z-index: 50;
+      }
+      img,
+      svg {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+      }
+
+      .result-token-info {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+
+        span:first-of-type {
+          padding: 0 0.5rem;
+        }
+
+        span:last-of-type {
+          width: 20ch;
+
+          // doesnt work
+          // text-overflow: ellipsis;
+          // white-space: nowrap;
+          // overflow: hidden;
+        }
+      }
+
+      .token-info {
+        display: flex;
+        flex-direction: column;
+        margin-left: 10px;
+        height: 45px;
+        z-index: 100;
+        background-color: var(--main-bg);
+      }
+
+      .user-token-name {
+        display: flex;
+        color: var(--second-color);
+        font-size: 0.8rem;
+        overflow: hidden;
+        word-break: break-all;
+        overflow-y: auto;
+      }
+
+      > svg {
+        position: absolute;
+        right: 0;
+        opacity: 0;
+        padding: 0.5rem;
+        transition: transform 0.3s ease 0s;
+        color: var(--secondary-color);
+        transition: transform 0.3s ease 0s;
+      }
+
+      &.imported-token {
+        &:hover {
+          .balance {
+            transform: translateX(-2.5rem);
+          }
+        }
+      }
+
+      &:hover {
+        &:not(.active) {
+          .balance {
+            background-color: var(--hover-bg);
+          }
+          .token-info {
+            background-color: var(--hover-bg);
+          }
+        }
+
+        > svg {
+          opacity: 1;
+
+          &:hover {
+            transform: rotate(90deg);
+          }
+        }
+      }
+    }
+
+    .Button {
+      margin: 0;
+      padding: 0.5rem 1.25rem;
+    }
+
+    .result-token {
+      cursor: default;
+
+      &:hover {
+        background-color: transparent !important;
+      }
+
+      &.in-list {
+        padding: 0.5rem;
+
+        cursor: pointer;
+
+        &:hover {
+          background-color: var(--hover-bg) !important;
+        }
+      }
+
+      svg {
+        cursor: default;
+      }
+    }
+  }
+}

@@ -1,0 +1,147 @@
+.OrderCard {
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+  gap: 1rem;
+  padding: 1rem;
+  width: 100%;
+  max-width: 970px;
+  min-height: 400px;
+  border: 1px solid var(--secondary-color-transp);
+
+  // Main tabs styling
+  .main-tabs {
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    flex-shrink: 0;
+
+    button {
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 0.5rem;
+      padding: 0.5rem 1.5rem;
+      background-color: transparent;
+      border: 1px solid var(--secondary-color-transp);
+      color: var(--second-color);
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-color: var(--hover-bg);
+        border-color: var(--secondary-color);
+      }
+
+      &.active-main-tab {
+        background-color: var(--secondary-bg);
+        border-color: var(--secondary-color);
+        color: var(--text-color);
+      }
+    }
+  }
+
+  // Sub-tabs styling
+  .sub-tabs {
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.25rem;
+    margin-bottom: 0.5rem;
+    flex-shrink: 0;
+
+    button {
+      font-size: 0.9rem;
+      font-weight: 500;
+      border-radius: 0.25rem;
+      padding: 0.5rem 0.75rem;
+      background-color: transparent;
+      border: none;
+      color: var(--second-color);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+
+      &:hover {
+        background-color: var(--hover-bg);
+        color: var(--text-color);
+      }
+
+      &.active-sub-tab {
+        background-color: var(--hover-bg);
+        color: var(--text-color);
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background-color: var(--secondary-color);
+          border-radius: 1px 1px 0 0;
+        }
+      }
+    }
+  }
+
+  // Content area
+  .tab-content {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 0px;
+    }
+  }
+
+  .connect-wallet {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - 120px);
+  }
+
+  .active-card {
+    background-color: var(--secondary-bg);
+  }
+
+  .order-nav {
+    display: flex;
+    justify-content: center;
+    // background-color: var(--hover-bg);
+    border-radius: 0.5rem 0.5rem 0 0;
+    border-bottom: none;
+
+    .order-title {
+      border-radius: 0.5rem 0.5rem 0 0;
+      flex-grow: 1;
+      text-align: center;
+      padding: 1rem 0;
+      cursor: pointer;
+
+      &.active {
+        // background-color: var(--secondary-bg);
+      }
+    }
+  }
+
+  .no-order {
+    border-radius: 0 0 12px 12px;
+    text-align: center;
+    padding: 2rem 0;
+    height: 100%;
+    border-top: none;
+  }
+}
+
+@media screen and (max-width: 1210px) {
+  .OrderCard {
+    max-height: 534px;
+    .order-nav,
+    .no-order,
+    table {
+      border-radius: 0px;
+    }
+  }
+}

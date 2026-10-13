@@ -1,0 +1,30 @@
+.progress-circle {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.1s linear;
+  background: conic-gradient(#3498db 0deg, #e0e0e0 0deg);
+}
+
+.inner-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  font-size: 0.8rem;
+  border-radius: 50%;
+  background-color: var(--third-bg);
+
+  svg {
+    transition: transform 0.3s linear;
+  }
+
+  &:hover svg {
+    transform: rotate(360deg);
+  }
+}

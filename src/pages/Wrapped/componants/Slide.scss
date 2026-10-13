@@ -1,0 +1,12 @@
+.Slide {
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--main-bg);
+  color: var(--main-color);
+  text-align: center;
+  padding: 2rem;
+}

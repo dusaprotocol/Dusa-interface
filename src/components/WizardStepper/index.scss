@@ -1,0 +1,226 @@
+@import '../../assets/sass/design-tokens.scss';
+
+.WizardStepper {
+  width: 100%;
+  margin-bottom: var(--layout-gap-md);
+
+  .wizard-steps {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: var(--layout-gap-sm);
+    }
+  }
+
+  .wizard-step-container {
+    display: flex;
+    align-items: center;
+    flex: 1;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+
+  .wizard-step {
+    @include card-base;
+    @include interactive-element;
+    display: flex;
+    align-items: center;
+    gap: var(--layout-gap-md);
+    padding: 8px var(--layout-gap-md);
+    flex: 1;
+    background: rgba(var(--secondary-bg), 0.3);
+    border-color: var(--border-color);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--border-color);
+      transition: all var(--transition-normal);
+    }
+
+    &:hover {
+      background: rgba(var(--secondary-bg), 0.5);
+      border-color: var(--secondary-color);
+      transform: var(--interactive-hover-transform);
+
+      &::before {
+        background: var(--secondary-color);
+      }
+    }
+
+    &.active {
+      background: var(--gradient-card);
+      border-color: var(--secondary-color);
+
+      &::before {
+        background: var(--gradient-primary);
+        height: 3px;
+      }
+
+      .step-indicator {
+        background: var(--gradient-primary);
+        color: var(--main-bg);
+        border-color: var(--secondary-color);
+      }
+
+      .step-title {
+        color: var(--main-color);
+        font-weight: var(--font-weight-semibold);
+      }
+    }
+
+    &.completed {
+      background: rgba(var(--green), 0.1);
+      border-color: var(--green);
+
+      &::before {
+        background: var(--green);
+      }
+
+      .step-indicator {
+        background: var(--green);
+        color: var(--main-bg);
+        border-color: var(--green);
+      }
+
+      .step-title {
+        color: var(--green);
+      }
+
+      &:hover {
+        background: rgba(var(--green), 0.15);
+      }
+    }
+
+    &.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+
+      &:hover {
+        transform: none;
+        background: rgba(var(--secondary-bg), 0.3);
+        border-color: var(--border-color);
+      }
+    }
+
+    .step-indicator {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--secondary-bg);
+      border: 2px solid var(--border-color);
+      color: var(--main-color);
+      font-weight: var(--font-weight-semibold);
+      font-size: var(--font-size-sm);
+      transition: all var(--transition-normal);
+      flex-shrink: 0;
+
+      svg {
+        font-size: var(--font-size-sm);
+      }
+    }
+
+    .step-content {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+
+      .step-title {
+        font-size: var(--font-size-md);
+        font-weight: var(--font-weight-medium);
+        color: var(--main-color);
+        line-height: var(--line-height-tight);
+      }
+
+      .step-description {
+        font-size: var(--font-size-sm);
+        color: var(--second-color);
+        opacity: 0.8;
+        line-height: var(--line-height-normal);
+      }
+    }
+  }
+
+  .step-separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 var(--layout-gap-sm);
+    color: var(--second-color);
+    opacity: 0.5;
+    font-size: var(--font-size-sm);
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+}
+
+// Enhanced mobile responsiveness
+@media (max-width: 768px) {
+  .WizardStepper {
+    .wizard-steps {
+      gap: var(--layout-gap-xs);
+    }
+
+    .wizard-step {
+      padding: 6px var(--layout-gap-sm);
+      gap: var(--layout-gap-sm);
+
+      .step-indicator {
+        width: 2.2rem;
+        height: 2.2rem;
+        font-size: var(--font-size-xs);
+
+        svg {
+          font-size: var(--font-size-xs);
+        }
+      }
+
+      .step-content {
+        gap: var(--layout-gap-xs);
+
+        .step-title {
+          font-size: var(--font-size-sm);
+        }
+
+        .step-description {
+          font-size: var(--font-size-xs);
+          display: none; // Hide descriptions on very small screens
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .WizardStepper {
+    .wizard-step {
+      .step-indicator {
+        width: 2rem;
+        height: 2rem;
+      }
+
+      .step-content {
+        .step-title {
+          font-size: var(--font-size-xs);
+        }
+      }
+    }
+  }
+}

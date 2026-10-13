@@ -1,0 +1,121 @@
+.PoolsOwn {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  .autonomous-manual-div {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--second-color);
+  }
+}
+.assets-owned-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  .pool-created-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .asset-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.75rem 0.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid transparent;
+    cursor: pointer;
+
+    &:hover {
+      border: 1px solid var(--secondary-color);
+    }
+
+    .token-logos {
+      display: flex;
+      flex-direction: row;
+      .token-logo {
+        width: 1.5rem;
+        height: 1.5rem;
+
+        &:last-of-type {
+          margin-left: -0.3rem;
+        }
+      }
+    }
+  }
+
+  .pool-name {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+
+    .token-logos {
+      .token-logo {
+        width: 1.5rem;
+        height: 1.5rem;
+
+        &:last-of-type {
+          margin-left: -0.3rem;
+        }
+      }
+    }
+
+    > div {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .symbols {
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .binStep {
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      gap: 0.25rem;
+      padding: 0.25rem 0.5rem;
+      color: var(--second-color);
+      background-color: var(--hover-bg);
+      font-size: 0.9rem;
+      border-radius: 0.5rem;
+    }
+  }
+
+  .asset-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.25rem;
+
+    > div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+
+      span:last-child {
+        text-align: right;
+      }
+    }
+
+    .asset-token-amount {
+      display: flex;
+      gap: 0.25rem;
+      font-size: 0.75rem;
+
+      .info-fees-al {
+        text-align: right;
+        opacity: 0.4;
+        white-space: wrap;
+      }
+    }
+  }
+}

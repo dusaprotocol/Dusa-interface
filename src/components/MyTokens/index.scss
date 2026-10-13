@@ -1,0 +1,57 @@
+.token-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.25rem 0.5rem;
+
+  .token-item-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    img {
+      width: 1.75rem;
+      height: 1.75rem;
+    }
+
+    .token-item-symbol {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+
+      button {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--secondary-color);
+        border: 1px solid transparent;
+        border-radius: 0.25rem;
+        padding: 0.1rem 0.25rem;
+
+        &:hover {
+          border: 1px solid var(--secondary-color);
+        }
+      }
+    }
+
+    > div {
+      display: flex;
+      flex-direction: column;
+
+      .token-name {
+        font-size: 1rem;
+        font-weight: 600;
+      }
+
+      .token-balance {
+        font-size: 0.9rem;
+        font-weight: 300;
+      }
+    }
+  }
+
+  .dollar-value {
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0.6;
+    color: var(--secondary-color);
+  }
+}

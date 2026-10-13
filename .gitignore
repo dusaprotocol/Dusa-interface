@@ -1,0 +1,13 @@
+/build
+/dist
+/node_modules
+.env*
+!.env.example
+*.zip
+.DS_Store
+*.md
+!README.md
+
+public/datafeeds
+public/charting_library
+src/charting_library

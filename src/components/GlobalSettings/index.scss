@@ -1,0 +1,92 @@
+.settings-container {
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  max-width: 380px;
+  margin: 1rem;
+  font-size: 0.9rem;
+  gap: 2rem;
+
+  h3 {
+    text-align: left;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--secondary-color-transp);
+    font-size: 1rem;
+  }
+
+  .global-setting {
+    display: flex;
+    flex-direction: column;
+
+    .dusa-fdv-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+
+      h3 {
+        text-align: left;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--secondary-color-transp);
+        font-size: 1rem;
+      }
+
+      .dusa-fdv-content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        > span {
+          text-align: left;
+        }
+
+        .dusa-fdv-values {
+          position: relative;
+          display: flex;
+          align-items: center;
+          padding: 0.5rem;
+          border-radius: 0.5rem;
+          background-color: var(--hover-bg);
+
+          span {
+            position: absolute;
+          }
+
+          .custom-fdv {
+            width: 100%;
+            padding-left: 0.75rem;
+            input {
+              font-size: 1rem;
+              width: 100%;
+              &:focus {
+                outline: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .settings-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+
+    .settings-theme {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+
+      .settings-theme-item {
+        display: flex;
+        justify-content: space-between;
+
+        .tabulation {
+          margin-left: 1rem;
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+}

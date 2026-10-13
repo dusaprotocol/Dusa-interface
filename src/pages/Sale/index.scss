@@ -1,0 +1,138 @@
+.Sale {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1000px;
+
+  .sale__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 3rem 0 2rem 0;
+
+    .sale__dates {
+      display: flex;
+      gap: 1rem;
+      font-size: 1.2rem;
+      opacity: 0.85;
+      font-style: italic;
+    }
+  }
+
+  .sale__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    .sale__content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6rem;
+      row-gap: 4rem;
+    }
+  }
+}
+.sale__item {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  .Tooltip-content {
+    z-index: 1000 !important;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  &.sale__item--active {
+    filter: brightness(1.2);
+    border-color: var(--green);
+  }
+
+  p {
+    margin: 0.25rem 0;
+    line-height: 1.4;
+  }
+
+  .sale__item--completion {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+
+    span {
+      margin-bottom: 0.5rem;
+      font-size: 0.875rem;
+    }
+  }
+}
+
+.sale__footer {
+  position: sticky;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  background-color: var(--main-bg);
+  border-top: 1px solid var(--border);
+
+  .sale__purchase-input {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    .sale__input-group {
+      display: flex;
+      gap: 0.5rem;
+      input {
+        flex: 1;
+      }
+    }
+  }
+  .sale__purchase-actions {
+    flex: 1;
+    display: flex;
+    gap: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Sale {
+    .sale__content {
+      gap: 2rem !important;
+      row-gap: 2rem !important;
+
+      .sale__item {
+        flex-grow: 1;
+      }
+    }
+  }
+}
+
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-slide {
+  opacity: 0;
+  animation: fadeSlideUp 1s ease-out forwards;
+
+  &.card-1 {
+    animation-delay: 0.3s;
+  }
+  &.card-2 {
+    animation-delay: 0.6s;
+  }
+}

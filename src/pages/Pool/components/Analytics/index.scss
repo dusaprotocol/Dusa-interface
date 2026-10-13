@@ -1,0 +1,132 @@
+.analytics {
+  section {
+    margin-bottom: 5rem;
+  }
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+
+  .stats {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(6, 1fr);
+
+    .stat {
+      background-color: var(--hover-bg);
+      border-radius: 1rem;
+      padding: 1rem;
+
+      // First 3 items: each spans 2 columns (3 items in first row)
+      &:nth-child(-n+3) {
+        grid-column: span 2;
+      }
+
+      // Items 4 and beyond: each spans 3 columns (2 items per row)
+      &:nth-child(n+4) {
+        grid-column: span 3;
+      }
+
+      .stat-title {
+        color: var(--second-color);
+        font-size: 0.95rem;
+      }
+
+      .stat-values {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        .stat-value {
+          font-size: 1.5rem;
+        }
+
+        .stat-change {
+          &.positive {
+            color: var(--green);
+          }
+
+          &.negative {
+            color: #e4229a;
+          }
+        }
+      }
+    }
+  }
+}
+
+// POOL INFO
+
+.PoolInfo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  .pool-info-container {
+    background-color: var(--hover-bg);
+    border-radius: 1rem;
+    padding: 1rem;
+    flex: 1 0 30%;
+  }
+
+  .pool-info-name {
+    color: var(--second-color);
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  .pool-info-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    .icons {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      &:hover {
+        color: var(--second-color);
+      }
+    }
+  }
+}
+
+// POOL DISTRIBUTION
+
+.PoolDistribution {
+  position: relative;
+
+  .zoom-btns {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+
+    .zoom-btn {
+      padding: 1rem;
+      background-color: var(--hover-bg);
+      border-radius: 50%;
+
+      &:disabled {
+        cursor: not-allowed;
+
+        svg {
+          cursor: inherit;
+        }
+      }
+    }
+  }
+}
+
+// CHARTS
+
+.chart-header {
+  h2 {
+    font-size: 1.5rem !important;
+    font-weight: bolder !important;
+    color: inherit !important;
+  }
+}

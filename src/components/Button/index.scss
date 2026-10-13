@@ -1,0 +1,126 @@
+.Button {
+  display: flex;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  white-space: break-spaces;
+  user-select: none;
+  position: relative;
+
+  &.stretched {
+    width: 100%;
+  }
+
+  &:not(.stretched) {
+    justify-self: center;
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(1px);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.75;
+  }
+
+  &.outlined {
+    background: transparent;
+    color: var(--white);
+    border: 1px solid var(--secondary-color-transp);
+
+    &:hover {
+      color: var(--secondary-color);
+      border: 1px solid var(--secondary-color);
+    }
+
+    &:disabled {
+      color: #aaa;
+      border: 1px solid var(--secondary-color-transp);
+    }
+  }
+
+  &.contained {
+    background-color: var(--secondary-color);
+    color: var(--white);
+
+    &:hover:not(:disabled) {
+      filter: brightness(1.1);
+    }
+
+    // &:disabled {
+    //   color: #aaa;
+    // }
+  }
+
+  &.text {
+    background: transparent;
+
+    &:hover:not(:disabled) {
+      filter: brightness(1.1);
+    }
+
+    &:disabled {
+      color: #aaa;
+    }
+  }
+
+  &.winter {
+    background: linear-gradient(to bottom right, #e0f7fa, #b2ebf2);
+    color: #0a3d62;
+    border: 1px solid #b2ebf2;
+    transition:
+      transform 0.2s ease,
+      filter 0.2s ease;
+
+    &:hover:not(:disabled) {
+      filter: brightness(1.05);
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(1px);
+    }
+
+    &:disabled {
+      color: #aaa;
+      opacity: 0.6;
+    }
+  }
+
+  .Spinner {
+    position: absolute;
+    top: 0;
+    left: 8px;
+    width: 15px;
+    height: 100%;
+  }
+
+  .icon {
+    margin-right: 0.25rem;
+  }
+}
+
+.max-allowance-container {
+  display: flex;
+
+  .border-off {
+    border-radius: 5px 0 0 5px !important;
+  }
+  .max-allowance {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    width: 50px;
+    background-color: var(--secondary-color);
+    border-radius: 0 0.5rem 0.5rem 0;
+    border-left: 2px solid var(--secondary-color-transp);
+    z-index: 500;
+
+    &:hover:not(:disabled) {
+      filter: brightness(1.1);
+    }
+  }
+}

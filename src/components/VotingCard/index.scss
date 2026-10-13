@@ -1,0 +1,216 @@
+@import '../../assets/sass/design-tokens.scss';
+
+.VotingCard {
+  @include card-base;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--layout-gap-lg);
+  padding: var(--container-padding-sm) var(--container-padding-md);
+  margin-bottom: var(--layout-gap-xs);
+  min-height: 60px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border-radius: var(--radius-md);
+
+  &.selected {
+    border: 2px solid var(--green);
+    box-shadow: 0 0 0 1px var(--green-light);
+    background: rgba(var(--green), 0.05);
+  }
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--secondary-color);
+  }
+
+  // Pool Name Column (flexible, takes available space)
+  .pool-column {
+    flex: 1;
+    min-width: 200px;
+
+    // Ensure PoolTitle is properly styled within the row
+    .PoolTitle {
+      margin: 0;
+    }
+  }
+
+  // Metric Columns (fixed width for alignment)
+  .metric-column {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    min-width: 100px;
+    flex-shrink: 0;
+
+    &.highlight {
+      background: rgba(var(--secondary-color), 0.1);
+      padding: var(--layout-gap-xs);
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(var(--secondary-color), 0.2);
+    }
+
+    .metric-label {
+      font-size: var(--font-size-xs);
+      color: var(--second-color);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: var(--font-weight-medium);
+      margin-bottom: var(--layout-gap-xs);
+    }
+
+    .metric-value {
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-semibold);
+      color: var(--main-color);
+      line-height: var(--line-height-tight);
+
+      &.no-value {
+        display: flex;
+        flex-direction: column;
+        gap: var(--layout-gap-xs);
+        align-items: right;
+
+        span {
+          opacity: 0.6;
+        }
+      }
+    }
+
+    .metric-subtitle {
+      font-size: var(--font-size-xs);
+      color: var(--second-color);
+      opacity: 0.7;
+      // margin-top: var(--layout-gap-xs);
+    }
+  }
+
+  // Status Column (fixed width)
+  .status-column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+    flex-shrink: 0;
+
+    .status-selected {
+      display: flex;
+      align-items: center;
+      gap: var(--layout-gap-xs);
+      color: var(--green);
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-medium);
+
+      svg {
+        color: var(--green);
+      }
+    }
+
+    .status-unselected {
+      display: flex;
+      align-items: center;
+      color: var(--second-color);
+      font-size: var(--font-size-sm);
+      opacity: 0.7;
+      font-style: italic;
+    }
+  }
+
+  // Responsive adjustments
+  @media (max-width: 1024px) {
+    gap: var(--layout-gap-md);
+
+    .metric-column {
+      min-width: 80px;
+    }
+
+    .status-column {
+      min-width: 100px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--layout-gap-sm);
+    min-height: auto;
+    padding: var(--container-padding-sm);
+
+    .pool-column,
+    .metric-column,
+    .status-column {
+      min-width: auto;
+      text-align: left;
+    }
+
+    .metric-column {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+
+      .metric-label {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  // Skeleton loading styles
+  &.skeleton-card {
+    pointer-events: none;
+    cursor: default;
+
+    &:hover {
+      transform: none;
+      box-shadow: var(--shadow-base);
+      border-color: var(--border-color);
+    }
+
+    .skeleton-pool-title {
+      display: flex;
+      align-items: center;
+      gap: var(--layout-gap-sm);
+
+      .skeleton-token-icons {
+        width: 60px;
+        height: 30px;
+        border-radius: var(--radius-sm);
+      }
+
+      .skeleton-pool-name {
+        width: 120px;
+        height: 20px;
+        border-radius: var(--radius-xs);
+      }
+    }
+
+    .skeleton-metric-value {
+      width: 80px;
+      height: 16px;
+      border-radius: var(--radius-xs);
+      margin: 4px 0;
+    }
+
+    .skeleton-metric-subtitle {
+      width: 60px;
+      height: 12px;
+      border-radius: var(--radius-xs);
+      margin-top: var(--layout-gap-xs);
+    }
+
+    .skeleton-status {
+      width: 100px;
+      height: 16px;
+      border-radius: var(--radius-xs);
+    }
+
+    // Override hover effects for skeleton state
+    .metric-column.highlight {
+      background: rgba(var(--secondary-color), 0.05);
+      opacity: 0.7;
+    }
+  }
+}
+
+// End of VotingCard styles

@@ -1,0 +1,253 @@
+@import '../../assets/sass/design-tokens.scss';
+
+.Incentivize {
+  @include container-responsive;
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-gap-xl);
+  min-height: 100vh;
+  max-width: var(--container-max-width);
+  width: 100%;
+  margin: 0 auto;
+
+  @media (max-width: 1024px) {
+    gap: var(--layout-gap-xl);
+  }
+
+  @media (max-width: 768px) {
+    gap: var(--layout-gap-lg);
+  }
+
+  // Enhanced page structure
+  .page-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--layout-gap-xl);
+    width: 100%;
+  }
+
+  // Ensure components take full width
+  .MetricsPanel,
+  .PoolsGrid,
+  .section-header,
+  .loading-container,
+  .connect-container {
+    width: 100%;
+    max-width: none; // Remove any max-width constraints
+  }
+
+  // Override any component-specific width constraints
+  .MetricsPanel {
+    .metrics-grid {
+      width: 100%;
+
+      // Ensure metrics cards use available space efficiently
+      @media (min-width: 768px) {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+
+      @media (min-width: 1024px) {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+
+      @media (min-width: 1200px) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  }
+
+  // VotingCard takes full width in vertical layout
+  .VotingCard {
+    width: 100%;
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--layout-gap-lg);
+    margin-bottom: var(--layout-gap-xl);
+    padding-bottom: var(--layout-gap-md);
+    border-bottom: 1px solid var(--border-color);
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: var(--layout-gap-md);
+    }
+
+    .section-title {
+      font-size: var(--font-size-2xl);
+      font-weight: var(--font-weight-semibold);
+      color: var(--main-color);
+      line-height: var(--line-height-tight);
+      display: flex;
+      align-items: center;
+      gap: var(--layout-gap-sm);
+
+      &::before {
+        content: '';
+        width: 4px;
+        height: 1.8rem;
+        background: var(--secondary-color);
+        border-radius: var(--radius-xs);
+      }
+
+      @media (max-width: 768px) {
+        font-size: var(--font-size-xl);
+      }
+    }
+
+    .help-icon {
+      color: var(--second-color);
+      opacity: 0.8;
+      font-size: var(--font-size-lg);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+
+      &:hover {
+        opacity: 1;
+        color: var(--secondary-color);
+        transform: scale(1.1);
+      }
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: var(--layout-gap-md);
+      align-items: center;
+
+      @media (max-width: 768px) {
+        flex-wrap: wrap;
+        align-self: flex-start;
+        gap: var(--layout-gap-sm);
+      }
+
+      .Button {
+        transition: all var(--transition-fast);
+
+        &:hover:not(:disabled) {
+          transform: translateY(-1px);
+          box-shadow: var(--shadow-sm);
+        }
+      }
+    }
+  }
+
+  .pools-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--layout-gap-sm);
+    width: 100%;
+
+    @media (max-width: 768px) {
+      gap: var(--layout-gap-xs);
+    }
+  }
+
+  .loading-container,
+  .connect-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--layout-gap-2xl);
+    min-height: 200px;
+  }
+
+  .connect-container {
+    @include card-base;
+    text-align: center;
+
+    > * {
+      margin: 0 auto;
+    }
+  }
+
+  .vote-footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--layout-gap-lg);
+    padding: var(--container-padding-md);
+    background: var(--card-background);
+    border: var(--card-border);
+    border-radius: var(--radius-lg);
+    margin-top: var(--layout-gap-xl);
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: var(--layout-gap-md);
+    }
+
+    .vote-thumbnails {
+      display: flex;
+      gap: var(--layout-gap-sm);
+      flex-wrap: wrap;
+    }
+  }
+
+  // copied from pages/Pools
+  .PoolTitle {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+
+    .pool-title-left {
+      display: flex;
+      gap: 0.5rem;
+
+      .pill {
+        font-size: 0.9rem;
+        color: var(--second-color);
+        background-color: var(--secondary-bg);
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.5rem;
+        white-space: nowrap;
+
+        &.rewards {
+          background-color: var(--green);
+          color: var(--main-bg);
+        }
+      }
+
+      .CertificatedPool {
+        min-width: 120px;
+      }
+
+      .Tooltip-content {
+        width: fit-content;
+        .EpochDetails {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          white-space: nowrap;
+
+          .epoch-details {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+
+            > div {
+              display: flex;
+              flex-direction: column;
+              gap: 0.25rem;
+
+              .title {
+                font-size: 0.8rem;
+                font-weight: 400;
+                color: var(--second-color);
+              }
+
+              .value {
+                font-weight: 600;
+              }
+            }
+          }
+        }
+      }
+    }
+    .certificate {
+      color: #01bae3;
+    }
+  }
+}

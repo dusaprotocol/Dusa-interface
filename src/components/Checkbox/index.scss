@@ -1,0 +1,25 @@
+.Checkbox {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  background-color: var(--white);
+  border: 1px solid transparent;
+  cursor: pointer;
+
+  &:checked {
+    &::after {
+      content: '✔';
+      position: relative;
+      top: -2px;
+      display: block;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+    background-color: var(--secondary-color);
+  }
+
+  &:hover {
+    border-color: var(--green);
+  }
+}

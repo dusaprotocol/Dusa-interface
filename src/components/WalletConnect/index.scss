@@ -1,0 +1,21 @@
+.WalletConnect {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 1rem;
+  height: 38px;
+  background-color: var(--hover-bg);
+  border: 1px solid transparent;
+  border-radius: 5px;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 0.9rem;
+
+  &:hover {
+    border: 1px solid var(--secondary-color);
+  }
+
+  a {
+    padding: 8px 10px;
+  }
+}

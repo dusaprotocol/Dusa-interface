@@ -1,0 +1,93 @@
+.Tooltip {
+  position: relative;
+  width: min-content;
+  display: flex;
+  align-items: center;
+
+  .title {
+    white-space: nowrap;
+  }
+
+  .Tooltip-content {
+    display: none;
+    position: absolute;
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--secondary-color-transp);
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 0.5rem;
+    min-width: 130px;
+    border-radius: 0.5rem;
+    z-index: 99;
+
+    &.top {
+      bottom: calc(100% + 5px);
+    }
+
+    &.bottom {
+      top: calc(100% + 5px);
+    }
+
+    &.left {
+      right: 0;
+
+      &:not(.top) {
+        &:not(.bottom) {
+          right: 120%;
+        }
+      }
+      &:not(.bottom) {
+        &:not(.top) {
+          right: 120%;
+        }
+      }
+    }
+
+    &.right {
+      left: 0;
+
+      &:not(.top) {
+        &:not(.bottom) {
+          left: 120%;
+        }
+      }
+      &:not(.bottom) {
+        &:not(.top) {
+          left: 120%;
+        }
+      }
+    }
+  }
+
+  .Tooltip-trigger:hover + .Tooltip-content {
+    display: block;
+  }
+}
+
+// Portal-based tooltip styles
+.Tooltip-portal-content {
+  background-color: var(--secondary-bg);
+  border: 1px solid var(--secondary-color-transp);
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 0.5rem;
+  min-width: 130px;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  pointer-events: auto;
+  
+  // Ensure tooltip content is readable in all themes
+  color: var(--primary-text);
+  
+  // Add a subtle animation
+  opacity: 0;
+  transform: scale(0.95);
+  animation: tooltipFadeIn 0.15s ease-out forwards;
+}
+
+@keyframes tooltipFadeIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,21 @@
+.WalletConnectWrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0 5%;
+
+  .WalletConnectWrapper-bottom {
+    padding: 1rem 0 0 0;
+
+    svg {
+      cursor: default;
+      width: 20px;
+      margin-right: 10px;
+    }
+
+    > div {
+      display: flex;
+      align-items: center;
+      margin-bottom: 3px;
+    }
+  }
+}

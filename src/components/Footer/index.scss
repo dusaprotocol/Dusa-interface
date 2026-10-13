@@ -1,0 +1,35 @@
+.pulse__ring {
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  width: 0;
+  height: 0;
+  opacity: 1;
+  border-radius: 50%;
+  -webkit-animation: pulse-ring 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  animation: pulse-ring 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  border: 1.5px solid rgb(118, 158, 173);
+
+  &:nth-child(2) {
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+  }
+}
+
+@keyframes pulse-ring {
+  from {
+    top: 45%;
+    left: 45%;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+
+  to {
+    top: 0%;
+    left: 0%;
+    width: 90%;
+    height: 90%;
+    opacity: 0;
+  }
+}

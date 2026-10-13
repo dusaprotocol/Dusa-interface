@@ -1,0 +1,54 @@
+.DCAHistory {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow-y: auto;
+  height: 100%;
+
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
+
+  .no-dca {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  .dca-history-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid transparent;
+    cursor: pointer;
+    background-color: var(--hover-bg);
+
+    &:hover {
+      border: 1px solid var(--secondary-color);
+    }
+  }
+
+  .dca-history-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    row-gap: 0.5rem;
+
+    .dca-history-content-item {
+      display: flex;
+      flex-direction: column;
+
+      span {
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      span:first-child {
+        font-weight: 300;
+        color: var(--second-color);
+      }
+    }
+  }
+}

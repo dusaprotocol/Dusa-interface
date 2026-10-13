@@ -1,0 +1,349 @@
+.DeployFloor {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+
+  .deploy-container {
+    display: flex;
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 2rem 1rem;
+
+    @media screen and (max-width: 1024px) {
+      flex-direction: column;
+    }
+  }
+
+  .deploy-card {
+    flex: 1;
+    background-color: var(--main-bg);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--secondary-color-transp);
+
+      .header-icon {
+        font-size: 2rem;
+        color: var(--primary-color);
+      }
+
+      h2 {
+        margin: 0;
+        font-size: 1.75rem;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin: 1rem 0 0.5rem 0;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--border-color);
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--secondary-color);
+
+      svg {
+        color: var(--primary-color);
+      }
+    }
+
+    input {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.1rem;
+      background-color: var(--hover-bg);
+      border: 1px solid transparent;
+      border-radius: 0.5rem;
+      color: var(--white);
+      transition: all 0.2s;
+
+      &:hover {
+        border-color: var(--secondary-color);
+      }
+
+      &:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        background-color: var(--secondary-bg);
+      }
+
+      &::placeholder {
+        color: #75869d;
+      }
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      &.invalid-address {
+        border-color: #ef4444;
+        background-color: rgba(239, 68, 68, 0.1);
+      }
+    }
+
+    .error-message {
+      font-size: 0.85rem;
+      color: #ef4444;
+      margin-top: -0.25rem;
+    }
+
+    .helper-text {
+      font-size: 0.85rem;
+      color: var(--secondary-color);
+      font-style: italic;
+      margin-top: -0.25rem;
+    }
+
+    .input-with-suffix {
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      input {
+        padding-right: 3rem;
+      }
+
+      .input-suffix {
+        position: absolute;
+        right: 1rem;
+        font-size: 1.1rem;
+        color: var(--secondary-color);
+        pointer-events: none;
+      }
+    }
+  }
+
+  .deploy-button-container {
+    margin-top: 1rem;
+
+    button {
+      width: 100%;
+      padding: 1.25rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+  }
+
+  .validation-hints {
+    background-color: var(--hover-bg);
+    border-left: 3px solid #f59e0b;
+    border-radius: 0.5rem;
+    padding: 1rem;
+
+    ul {
+      margin: 0;
+      padding-left: 1.5rem;
+      list-style-type: disc;
+
+      li {
+        color: #fbbf24;
+        font-size: 0.9rem;
+        margin: 0.25rem 0;
+      }
+    }
+  }
+
+  .success-message {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    border-radius: 0.5rem;
+    padding: 1rem;
+
+    svg {
+      color: #22c55e;
+      font-size: 1.5rem;
+    }
+
+    p {
+      margin: 0;
+      color: #22c55e;
+      font-size: 0.95rem;
+      word-break: break-all;
+    }
+  }
+
+  .info-card {
+    flex: 0 0 400px;
+    background-color: var(--main-bg);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+
+    @media screen and (max-width: 1024px) {
+      flex: 1;
+    }
+
+    h3 {
+      margin: 0 0 1rem 0;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+
+    p {
+      margin: 0 0 1.5rem 0;
+      line-height: 1.6;
+      color: var(--secondary-color);
+    }
+
+    .info-features {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+
+      svg {
+        flex-shrink: 0;
+        margin-top: 0.25rem;
+        font-size: 1.5rem;
+        color: var(--primary-color);
+      }
+
+      div {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+
+        strong {
+          font-size: 1rem;
+          color: var(--white);
+        }
+
+        span {
+          font-size: 0.9rem;
+          color: var(--secondary-color);
+          line-height: 1.5;
+        }
+      }
+    }
+  }
+
+  // Success Modal
+  .success-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem;
+    max-width: 500px;
+
+    .success-icon {
+      font-size: 4rem;
+      color: #22c55e;
+      animation: scaleIn 0.3s ease-out;
+    }
+  }
+}
+
+.DeploySuccessModal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+
+  .success-icon {
+    font-size: 4rem;
+    color: #22c55e;
+    animation: scaleIn 0.3s ease-out;
+  }
+
+  .success-message {
+    text-align: center;
+    color: var(--secondary-color);
+    line-height: 1.6;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .floor-address {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+    background-color: var(--hover-bg);
+    border-radius: 0.5rem;
+    border: 1px solid var(--border-color);
+
+    .label {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--secondary-color);
+    }
+
+    .address {
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      word-break: break-all;
+      color: var(--white);
+    }
+  }
+
+  .dashboard-link {
+    width: 100%;
+    text-decoration: none;
+
+    button {
+      width: 100%;
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      transform: scale(0);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+}

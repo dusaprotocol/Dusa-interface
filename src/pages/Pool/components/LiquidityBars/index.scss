@@ -1,0 +1,10 @@
+.LiquidityBars {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .recharts-tooltip-wrapper {
+    z-index: 999 !important;
+  }
+
+}

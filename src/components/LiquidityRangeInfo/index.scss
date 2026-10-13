@@ -1,0 +1,13 @@
+.InRange,
+.OutRange {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  white-space: nowrap;
+}
+.InRange {
+  color: var(--green);
+}
+.OutRange {
+  color: var(--red);
+}

@@ -1,0 +1,60 @@
+[data-theme='Dusa'] {
+  color-scheme: dark;
+  --main-color: #eee;
+  --second-color: #ccc;
+  --secondary-color: #1792d0;
+  --secondary-color-transp: #6b74ba96;
+  --third-color: #edf4ff;
+  --fourth-color: #4791ff;
+  --main-bg: #07162d;
+  --secondary-bg: #0c264b;
+  --third-bg: #061b39;
+  --container-bg: #1321409b;
+  --hover-bg: #091e3c;
+  --border-color: #ffffff10;
+  --white: #fff;
+  --green: #31d079;
+  --red: #ff4d4f;
+
+  --main-font-size: 0.875rem;
+}
+
+//Halloween theme
+[data-theme='Halloween'] {
+  color-scheme: dark;
+  --main-color: #eee;
+  --second-color: #ccc;
+  --secondary-color: #e87228;
+  --secondary-color-transp: #e8722896;
+  --third-color: #edf4ff;
+  --fourth-color: #4791ff;
+  --main-bg: #000000;
+  --secondary-bg: #030a13;
+  --third-bg: #020210;
+  --hover-bg: #050512;
+  --white: #fff;
+  --green: #31d0aa;
+  --red: #ff4d4f;
+
+  --main-font-size: 0.875rem;
+}
+
+//Winter theme
+[data-theme='Winter'] {
+  color-scheme: light;
+  --main-color: #0e1320;
+  --second-color: #1f3569;
+  --secondary-color: #46baf0;
+  --secondary-color-transp: #b3bac696;
+  --third-color: #586ea2;
+  --fourth-color: #629be6;
+  --main-bg: #eeeeee;
+  --secondary-bg: #eeeeee;
+  --third-bg: #d7dfe4;
+  --hover-bg: #dee4e9;
+  --white: #fff;
+  --green: #259a61;
+  --red: #f33434;
+
+  --main-font-size: 0.875rem;
+}

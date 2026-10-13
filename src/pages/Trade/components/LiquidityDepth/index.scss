@@ -1,0 +1,169 @@
+.LiquidityDepthTrade {
+  display: flex;
+  flex-direction: column;
+  background: var(--background-secondary);
+  border-radius: 8px;
+
+  .orderbook-container {
+    width: 100%;
+    overflow-x: auto;
+    padding: 0.5rem 1rem 1rem;
+  }
+
+  .orderbook-table {
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 0.875rem;
+  }
+
+  .orderbook-header-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0.25rem;
+    font-weight: 500;
+    font-size: 0.75rem;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--secondary-color-transp);
+
+    span {
+      flex: 1;
+      text-align: center;
+    }
+
+    .invert-price-btn {
+      padding: 0.25rem 0.5rem;
+      background: transparent;
+      border: 1px solid var(--secondary-color-transp);
+      border-radius: 4px;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 0.75rem;
+
+      &:hover {
+        background: var(--secondary-bg);
+        color: var(--text-primary);
+      }
+    }
+  }
+
+  .orderbook-section-header {
+    display: grid;
+    grid-template-columns: 1.5fr 1.3fr 1.3fr;
+    gap: 0.25rem;
+    padding: 0.4rem 0.25rem 0.3rem;
+    font-weight: 500;
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    text-align: right;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+    .price-col {
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .qty-col,
+    .total-col {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .orderbook-asks,
+  .orderbook-bids {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .orderbook-row {
+    display: grid;
+    grid-template-columns: 1.5fr 1.3fr 1.3fr;
+    gap: 0.25rem;
+    padding: 0.15rem 0.25rem;
+    text-align: right;
+    transition: background-color 0.2s;
+    font-size: 0.8rem;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .price-col {
+      text-align: left;
+      font-weight: 500;
+    }
+
+    .qty-col,
+    .total-col {
+      font-variant-numeric: tabular-nums;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    &.ask {
+      .ask-price {
+        color: #ff5454;
+      }
+    }
+
+    &.bid {
+      .bid-price {
+        color: #1ece8d;
+      }
+    }
+  }
+
+  .orderbook-active {
+    padding: 0.3rem 0.25rem;
+    margin: 0.15rem 0;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0.2;
+      z-index: 0;
+    }
+
+    .active-price {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      font-variant-numeric: tabular-nums;
+      position: relative;
+      z-index: 1;
+    }
+
+    .active-liquidity {
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+      font-variant-numeric: tabular-nums;
+      position: relative;
+      z-index: 1;
+      white-space: nowrap;
+    }
+  }
+
+  .no-data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    color: var(--text-secondary);
+  }
+}

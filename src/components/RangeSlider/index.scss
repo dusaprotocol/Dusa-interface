@@ -1,0 +1,152 @@
+$thumb-size: 1.35rem;
+
+@mixin track-styles {
+  appearance: none;
+  background: transparent;
+  border: transparent;
+}
+
+@mixin thumb-styles {
+  appearance: none;
+  pointer-events: all;
+  width: $thumb-size;
+  height: $thumb-size;
+  border-radius: 0px;
+  border: 0 none;
+  cursor: grab;
+  background-color: red;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.RangeSlider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+  height: calc(#{$thumb-size} + 1.6rem);
+  width: calc(100% - #{$thumb-size});
+
+  .input-wrapper {
+    width: calc(100% + #{$thumb-size});
+    margin: 0 calc(#{$thumb-size} / -2);
+    position: absolute;
+    height: $thumb-size;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 4px;
+      height: 200%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: var(--secondary-color);
+      border-radius: 2px;
+    }
+  }
+
+  .line-separator {
+    display: flex;
+    justify-content: space-around;
+    transform: translateY(1.5rem);
+    font-size: 0.85rem;
+  }
+
+  .control-wrapper {
+    width: 100%;
+    position: absolute;
+    height: $thumb-size;
+    user-select: none;
+  }
+  input {
+    position: absolute;
+    width: 100%;
+    pointer-events: none;
+    appearance: none;
+    height: 100%;
+    opacity: 0;
+    z-index: 5;
+
+    &::-ms-track {
+      @include track-styles;
+    }
+
+    &::-moz-range-track {
+      @include track-styles;
+    }
+
+    &:focus::-webkit-slider-runnable-track {
+      @include track-styles;
+    }
+
+    &::-ms-thumb {
+      @include thumb-styles;
+    }
+
+    &::-moz-range-thumb {
+      @include thumb-styles;
+    }
+
+    &::-webkit-slider-thumb {
+      @include thumb-styles;
+    }
+  }
+
+  .rail {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 1rem;
+    border-radius: 0.5rem;
+    background: var(--secondary-color-transp);
+  }
+
+  .inner-rail {
+    position: absolute;
+    height: 100%;
+    background: var(--secondary-color);
+    opacity: 0.5;
+  }
+
+  .control {
+    width: $thumb-size;
+    height: $thumb-size;
+    border-radius: 50%;
+    position: absolute;
+    background: var(--secondary-color);
+    top: 50%;
+    margin-left: calc(#{$thumb-size} / -2);
+    transform: translate3d(0, -50%, 0);
+    z-index: 2;
+    box-shadow: inset 0 0 0 3px #eee;
+    box-sizing: content-box;
+  }
+}
+
+.RangeSlider-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .RangeInputs {
+    display: grid;
+    grid-template-columns: 2.5fr 2.5fr 1fr;
+    gap: 0.5rem;
+    margin: 1.5rem 0 0;
+
+    .range-slider-detail {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.8rem;
+      gap: 0.5rem;
+    }
+
+    .Input-label {
+      background-color: var(--hover-bg);
+    }
+  }
+}

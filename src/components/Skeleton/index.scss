@@ -1,0 +1,11 @@
+.Skeleton {
+  animation: skeleton 0.8s ease-in-out infinite alternate;
+  background: #c5c5c5d1;
+  width: 50%;
+}
+
+@keyframes skeleton {
+  to {
+    opacity: 0.6;
+  }
+}

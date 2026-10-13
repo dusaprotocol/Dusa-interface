@@ -1,0 +1,110 @@
+.LiquidityBatchModal {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
+  max-height: 80vh;
+
+  .simulated-position-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    > button {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      .title {
+        font-size: 0.9rem;
+      }
+
+      input {
+        appearance: none;
+        width: 16px;
+        height: 16px;
+        border-radius: 3px;
+        background-color: var(--white);
+        cursor: pointer;
+
+        &:checked {
+          &::after {
+            content: '✔';
+            display: block;
+            text-align: center;
+          }
+          background-color: var(--secondary-color);
+        }
+      }
+    }
+  }
+
+  .batch-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-right: 0.5rem;
+    overflow-y: scroll;
+
+    .batch {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      background-color: var(--hover-bg);
+      cursor: pointer;
+
+      .batch-title {
+        display: flex;
+        gap: 0.5rem;
+
+        span:nth-child(2) {
+          font-size: 0.9rem;
+          font-weight: 600;
+        }
+      }
+
+      .batch-content {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 1.5rem;
+        row-gap: 0.5rem;
+
+        .batch-price-range {
+          display: flex;
+          flex-direction: column;
+
+          span:nth-child(1) {
+            font-size: 0.8rem;
+            color: var(--second-color);
+          }
+          span:nth-child(2) {
+            font-size: 0.9rem;
+            font-weight: 600;
+          }
+        }
+      }
+
+      &:hover,
+      &.active {
+        background-color: var(--secondary-bg);
+      }
+
+      &.active {
+        filter: brightness(1.1);
+      }
+
+      &.disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        &:hover:not(.active) {
+          background-color: var(--hover-bg);
+        }
+        &.active {
+          opacity: 0.75;
+        }
+      }
+    }
+  }
+}

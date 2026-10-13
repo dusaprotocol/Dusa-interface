@@ -1,0 +1,79 @@
+.TokenPledgeModal {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+
+  .campaign-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .campaign {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 1rem;
+      background-color: var(--hover-bg);
+      border: 1px solid transparent;
+      border-radius: 0.5rem;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+
+      &:hover {
+        border-color: var(--green);
+        filter: brightness(1.1);
+      }
+
+      h4 {
+        text-align: center;
+      }
+
+      .campaign-content {
+        display: flex;
+        flex-direction: row;
+
+        &.invert-description {
+          flex-direction: row-reverse;
+          justify-content: end;
+
+          .description-container {
+            .description,
+            .more {
+              text-align: right;
+            }
+          }
+        }
+      }
+
+      .description-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        .description,
+        .more {
+          text-align: left;
+        }
+
+        .more a {
+          text-decoration: underline;
+          &:hover {
+            font-weight: 500;
+          }
+        }
+      }
+
+      &.selected {
+        border-color: var(--green);
+      }
+
+      img {
+        width: 100%;
+        max-width: 200px;
+        height: auto;
+        border-radius: 0.5rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+.SideModal {
+  > div {
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+  }
+}

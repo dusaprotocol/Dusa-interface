@@ -1,0 +1,48 @@
+.DiscordUser {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  .user {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .avatar {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+    }
+    .names {
+      display: flex;
+      flex-direction: column;
+
+      .global {
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
+      .username {
+        font-size: 0.9rem;
+        font-weight: 400;
+      }
+    }
+  }
+
+  .role {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    padding-left: 1rem;
+    border-left: 1px solid var(--white);
+
+    font-weight: 500;
+
+    .role-name {
+      color: var(--white);
+    }
+    .role-boost {
+      font-size: 0.9rem;
+    }
+  }
+}

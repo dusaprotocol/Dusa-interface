@@ -260,8 +260,15 @@ describe('filterPools', () => {
   it('should work w/ one symbol', () => {
     const search = 'USDC';
     const filtered = filterPools(search, pools);
+    const hasUsdc = (pool: (typeof pools)[number]) =>
+      [pool.token0, pool.token1].some((t) =>
+        t.symbol.toLowerCase().includes('usdc')
+      );
 
-    expect(filtered.length).toBe(3);
+    // every USDC pool, and only those (the pool list grows over time)
+    expect(filtered.length).toBeGreaterThan(0);
+    expect(filtered.every(hasUsdc)).toBe(true);
+    expect(filtered.length).toBe(pools.filter(hasUsdc).length);
   });
   it('should work w/ two symbols', () => {
     const search = 'USDC WMAS';
@@ -291,8 +298,10 @@ describe('filterPools', () => {
 });
 describe('shortenDate', () => {
   it('should work', () => {
-    const date = shortenDate(dayjs(new Date(1)).fromNow());
-    expect(date).toBe('55y');
+    // fixed reference date, so the result doesn't change over time
+    const start = dayjs(new Date(1));
+    expect(shortenDate(start.from(start.add(55, 'year')))).toBe('55y');
+    expect(shortenDate(start.from(start.add(3, 'day')))).toBe('3d');
   });
 });
 describe('misc', () => {

@@ -3,6 +3,7 @@
 /node_modules
 .env*
 !.env.example
+!.env.test
 *.zip
 .DS_Store
 *.md

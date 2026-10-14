@@ -29,7 +29,7 @@ import { TradeContext } from 'pages/Trade';
 import SwapCard from 'pages/Trade/components/SwapCard';
 import { FEATURE_FLAGS, actualTheme, api, apiBackup } from 'utils/config';
 import { setTheme } from 'utils/darkMode';
-import { getTokenFromAddress } from 'utils/methods';
+import { getKnownToken } from 'utils/methods';
 import {
   getInterfaceLevel,
   getInterfaceTheme,
@@ -50,7 +50,6 @@ import {
   setSimulateTx as setSimulateTxStorage
 } from 'utils/storage';
 import { QueryKey, queryKeys, trpc } from 'utils/trpc';
-import { Token } from 'utils/types';
 import ScrollToTop from './ScrollToTop';
 import 'react-toastify/dist/ReactToastify.css';
 import './assets/sass/index.scss';
@@ -296,14 +295,6 @@ const SettingsWrapper = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-const findListedToken = (address: string): Token | undefined => {
-  try {
-    return getTokenFromAddress(address);
-  } catch {
-    return undefined;
-  }
-};
-
 const SwapWidget = () => {
   const [isFromFixed, setIsFromFixed] = useState(false);
   const [isToFixed, setIsToFixed] = useState(false);
@@ -315,10 +306,10 @@ const SwapWidget = () => {
   useEffect(() => {
     const query = new URLSearchParams(search);
     const { tokenIn, tokenOut, fixIn, fixOut } = Object.fromEntries(query);
-    // The widget can be embedded by any site: only preselect (and lock) tokens
-    // that are on the token list, never an arbitrary contract from the URL.
-    const listedIn = tokenIn ? findListedToken(tokenIn) : undefined;
-    const listedOut = tokenOut ? findListedToken(tokenOut) : undefined;
+    // The widget can be embedded by any site: only preselect (and lock) known
+    // tokens, never an arbitrary contract from the URL.
+    const listedIn = tokenIn ? getKnownToken(tokenIn) : undefined;
+    const listedOut = tokenOut ? getKnownToken(tokenOut) : undefined;
     listedIn && setToken0(listedIn);
     listedOut && setToken1(listedOut);
     listedIn && fixIn === 'true' && setIsFromFixed(true);

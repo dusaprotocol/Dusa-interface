@@ -28,10 +28,10 @@ import { getWmasIfMas } from 'utils/coreMethods';
 import {
   fetchPairBinStep,
   fetchPoolVersion,
-  fetchTokenFromAddress,
   getPairAddressTokens
 } from 'utils/datastoreFetcher';
 import {
+  getKnownToken,
   getTokenFromAddress,
   getTokensDCAFromStorage,
   getTokensFromStorage
@@ -118,12 +118,15 @@ const Trade = () => {
     const tokenOut = prms.get('tokenOut');
     const actvTab = prms.get('tab') === 'DCA' ? 'DCA' : 'Swap';
 
+    // only known tokens: a link must not preselect an arbitrary (possibly fake) token
+    const knownIn = tokenIn ? getKnownToken(tokenIn) : undefined;
+    const knownOut = tokenOut ? getKnownToken(tokenOut) : undefined;
     if (actvTab === 'DCA') {
-      tokenIn && fetchTokenFromAddress(tokenIn).then(setToken0DCA);
-      tokenOut && fetchTokenFromAddress(tokenOut).then(setToken1DCA);
+      knownIn && setToken0DCA(knownIn);
+      knownOut && setToken1DCA(knownOut);
     } else {
-      tokenIn && fetchTokenFromAddress(tokenIn).then(setToken0Swap);
-      tokenOut && fetchTokenFromAddress(tokenOut).then(setToken1Swap);
+      knownIn && setToken0Swap(knownIn);
+      knownOut && setToken1Swap(knownOut);
     }
   }, [search]);
 

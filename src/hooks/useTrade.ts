@@ -1,15 +1,11 @@
 import { useState, useEffect } from 'react';
 import { TradeV2, parseUnits, QuoterHelper, TokenAmount } from '@dusalabs/sdk';
 import { useQuery } from '@tanstack/react-query';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { TradeContextProps } from 'pages/Trade';
 import { CHAIN_ID, quoterV2SC } from 'utils/config';
 import { getWmasIfMas } from 'utils/coreMethods';
-import {
-  fetchTokenFromAddress,
-  fetchPairBinStep,
-  getPairAddressTokens
-} from 'utils/datastoreFetcher';
+import { fetchPairBinStep, getPairAddressTokens } from 'utils/datastoreFetcher';
 import { getTokensFromStorage } from 'utils/methods';
 import { updateLastTokens } from 'utils/storage';
 import { queryKeys } from 'utils/trpc';
@@ -29,18 +25,8 @@ const useTrade = (): TradeContextProps => {
 
   const history = useNavigate();
 
-  const { search } = useLocation();
-
-  useEffect(() => {
-    const query = new URLSearchParams(search);
-    const { tokenIn, tokenOut, fixIn, fixOut } = Object.fromEntries(query);
-    // if (tokenIn === DUSA_.address)
-    tokenIn && fetchTokenFromAddress(tokenIn).then(setToken0);
-    tokenOut && fetchTokenFromAddress(tokenOut).then(setToken1);
-    // console.log({ fixIn, fixOut });
-    // fixIn && fixIn === 'true' && setIsFromFixed(true);
-    // fixOut && fixOut === 'true' && setIsToFixed(true);
-  }, [search]);
+  // Tokens from the URL are handled by the pages (Trade, SwapWidget), which only accept
+  // known tokens: see getKnownToken
 
   const fetchBestTrade = async (
     qty: string | undefined,

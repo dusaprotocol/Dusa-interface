@@ -294,6 +294,22 @@ export const getTokenFromAddress = (address: string): Token => {
   return token;
 };
 
+/**
+ * Token that can be selected from a URL (links, embedded widget): on the token list,
+ * imported by the user, or part of an official pool. Anyone can deploy a token with
+ * any name and symbol (e.g. a fake "USDC"), so other addresses must go through the
+ * token search, which shows an "Unverified" warning and asks for confirmation.
+ */
+export const getKnownToken = (address: string): Token | undefined => {
+  try {
+    return getTokenFromAddress(address);
+  } catch {
+    return _pools
+      .flatMap((pool) => [pool.token0, pool.token1])
+      .find((token) => token.address === address);
+  }
+};
+
 export const getLogoURIFromToken = (token: Token): string => {
   if (token.logoURI) return token.logoURI;
   else {

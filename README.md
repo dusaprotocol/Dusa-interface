@@ -39,6 +39,21 @@ Other scripts:
 | `pnpm test`                              | Unit tests (Vitest)                               |
 | `pnpm lint`                              | ESLint                                            |
 
+## Backend types
+
+The API client is typed with the backend's tRPC router, imported from
+`../../../backend/api/src/trpc` (see `src/utils/trpc.ts`). For type checking and editor support,
+clone [Dusa-backend](https://github.com/dusaprotocol/Dusa-backend) next to this repository, in a
+folder named `backend`:
+
+```
+dusa/
+├── backend/      # Dusa-backend
+└── interface/    # this repository
+```
+
+The import is type-only, so `pnpm dev` and `pnpm build` work without it.
+
 ## Configuration
 
 All configuration is read from `VITE_*` environment variables (see [`.env.example`](.env.example)).

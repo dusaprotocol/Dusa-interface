@@ -5,15 +5,15 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
-  '@dusalabs/sdk>@massalabs/massa-web3': 5.3.1-dev.20261001162419
+  '@massalabs/massa-web3': 5.4.0
 
 dependencies:
   '@cedelabs/widgets-universal':
     specifier: ^1.6.0
     version: 1.6.0
   '@dusalabs/sdk':
-    specifier: ^1.1.15
-    version: 1.1.15
+    specifier: ^1.1.18
+    version: 1.1.18
   '@fireworks-js/react':
     specifier: ^2.10.8
     version: 2.10.8(@types/react@18.3.23)(react@18.3.1)
@@ -32,9 +32,12 @@ dependencies:
   '@fortawesome/react-fontawesome':
     specifier: ^0.2.0
     version: 0.2.2(@fortawesome/fontawesome-svg-core@6.7.2)(react@18.3.1)
+  '@massalabs/massa-web3':
+    specifier: 5.4.0
+    version: 5.4.0
   '@massalabs/wallet-provider':
-    specifier: 3.1.2-dev.20250312132407
-    version: 3.1.2-dev.20250312132407(webextension-polyfill@0.12.0)
+    specifier: 3.3.1
+    version: 3.3.1(webextension-polyfill@0.12.0)
   '@netlify/functions':
     specifier: ^4.1.0
     version: 4.1.14
@@ -133,9 +136,6 @@ dependencies:
     version: 1.0.11(@types/react-dom@18.3.7)(@types/react@18.3.23)(react-dom@18.3.1)(react@18.3.1)
 
 devDependencies:
-  '@massalabs/massa-web3':
-    specifier: 5.3.1-dev.20261001162419
-    version: 5.3.1-dev.20261001162419
   '@testing-library/react':
     specifier: ^16.0.1
     version: 16.3.0(@testing-library/dom@10.4.0)(@types/react-dom@18.3.7)(@types/react@18.3.23)(react-dom@18.3.1)(react@18.3.1)
@@ -717,14 +717,14 @@ packages:
       node-source-walk: 7.0.1
     dev: false
 
-  /@dusalabs/sdk@1.1.15:
+  /@dusalabs/sdk@1.1.18:
     resolution:
       {
-        integrity: sha512-piJweeN3SsppciH31iLoBZg+Cz4VzPYL5AxaEybZiJs2Ufqv9m9T70tTtLvbOQoRDSAx0LvnaX9d2hLeEpeJGg==
+        integrity: sha512-Hvtc/vjFg0x2KhZU8M4M9w/lvtadq73pyOSfKfYfvzmqlASZKDduQFwA0ptiKGszwSkTzDA6ptXzgNc530U5NA==
       }
     engines: { node: '>=10' }
     dependencies:
-      '@massalabs/massa-web3': 5.3.1-dev.20261001162419
+      '@massalabs/massa-web3': 5.4.0
       big.js: 6.2.2
       decimal.js-light: 2.5.1
       tiny-invariant: 1.3.3
@@ -1918,31 +1918,10 @@ packages:
       - supports-color
     dev: false
 
-  /@massalabs/massa-web3@5.2.0:
+  /@massalabs/massa-web3@5.4.0:
     resolution:
       {
-        integrity: sha512-t60PlZXMPWn7h44Koe9XVfHSaQKdbzvm+K21VXzqiUKP5VMvdvf1AEkq8HpTLcq81cy5RV+UfdSoISw3Hn7pHQ==
-      }
-    dependencies:
-      '@noble/ed25519': 1.7.5
-      '@noble/hashes': 1.8.0
-      bs58check: 4.0.0
-      decimal.js: 10.6.0
-      dotenv: 16.6.1
-      eventemitter3: 5.0.1
-      lodash.isequal: 4.5.0
-      secure-random: 1.1.2
-      tslib: 2.8.1
-      varint: 6.0.0
-    optionalDependencies:
-      bufferutil: 4.0.9
-      utf-8-validate: 6.0.5
-    dev: false
-
-  /@massalabs/massa-web3@5.3.1-dev.20261001162419:
-    resolution:
-      {
-        integrity: sha512-xf9Df/A68aWd7eZpR/6SrwokfgkaeNEYCmQiv4yidtDGxTxS84spgiKLAEAhsBYyj0MqTm4C4YNhO5LHjnQKiA==
+        integrity: sha512-b+/Lwl6snwi6ilImAD+8Cw4UHGZT6QsoReTkxufsfM4yW+JOvsFIPQ1GuQx2A13tzSAb9bGcnIKPl6DCrvVQ9Q==
       }
     dependencies:
       '@noble/ed25519': 1.7.5
@@ -1958,21 +1937,39 @@ packages:
     optionalDependencies:
       bufferutil: 4.0.9
       utf-8-validate: 6.0.5
+    dev: false
 
-  /@massalabs/wallet-provider@3.1.2-dev.20250312132407(webextension-polyfill@0.12.0):
+  /@massalabs/metamask-snap@1.2.1(webextension-polyfill@0.12.0):
     resolution:
       {
-        integrity: sha512-tYLplkDWszS6XlcmvGa20X7BsyBUZa+w6oQyUwJHLQWlH0nvX0OKn1fnicF19C+bNg5+/c/t6dM82ljVeAoCcg==
+        integrity: sha512-hqErey8Kr37huPs4W1+WECbYHj3XFY0wVn2KgK/Ec/BaYJ17G0WSIuJElsNy1SqkMc0ujXAA9M0qD2blVsxOAg==
+      }
+    engines: { node: '>=18.6.0' }
+    dependencies:
+      '@massalabs/massa-web3': 5.4.0
+      '@metamask/key-tree': 9.1.2
+      '@metamask/snaps-sdk': 6.24.0(webextension-polyfill@0.12.0)
+      buffer: 6.0.3
+      varint: 6.0.0
+    transitivePeerDependencies:
+      - supports-color
+      - webextension-polyfill
+    dev: false
+
+  /@massalabs/wallet-provider@3.3.1(webextension-polyfill@0.12.0):
+    resolution:
+      {
+        integrity: sha512-H0TpBaLrIOzTur6ggQDatmzqaLxJi2SyUmwo2G+Ane916qNiZ9V2PaifjWXznCyGnfEZbCox9JwUykpVrkOoTw==
       }
     dependencies:
       '@hicaru/bearby.js': 0.6.1
-      '@massalabs/massa-web3': 5.2.0
+      '@massalabs/massa-web3': 5.4.0
+      '@massalabs/metamask-snap': 1.2.1(webextension-polyfill@0.12.0)
       '@metamask/providers': 18.3.1(webextension-polyfill@0.12.0)
       axios: 1.11.0
       bs58check: 4.0.0
       buffer: 6.0.3
       eventemitter3: 5.0.1
-      lodash.isequal: 4.5.0
     transitivePeerDependencies:
       - debug
       - supports-color
@@ -2008,6 +2005,38 @@ packages:
       - supports-color
     dev: false
 
+  /@metamask/key-tree@10.1.1:
+    resolution:
+      {
+        integrity: sha512-k9/MljlUqXC86hAOp6QGUwNm9ODWuA/YkMxiEwXcChNJgQSYfPzDh+Hp6Agf3g2mLKagMbl2nkH0+4vas+Pnyw==
+      }
+    engines: { node: ^18.20 || ^20.17 || >=22 }
+    dependencies:
+      '@metamask/scure-bip39': 2.1.1
+      '@metamask/utils': 11.4.2
+      '@noble/curves': 1.9.7
+      '@noble/hashes': 1.8.0
+      '@scure/base': 1.2.6
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
+  /@metamask/key-tree@9.1.2:
+    resolution:
+      {
+        integrity: sha512-oznbIDlIn7bQsyf/RVhuVX9TsK+QUlTDeksUjBjTPKhGkFHAgn9duBHPE8P30VcCdWlt/oYSqfJVC5WK1/OXKw==
+      }
+    engines: { node: '>=16.0.0' }
+    dependencies:
+      '@metamask/scure-bip39': 2.1.1
+      '@metamask/utils': 9.3.0
+      '@noble/curves': 1.4.2
+      '@noble/hashes': 1.8.0
+      '@scure/base': 1.2.6
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
   /@metamask/object-multiplex@1.3.0:
     resolution:
       {
@@ -2035,6 +2064,31 @@ packages:
     resolution:
       {
         integrity: sha512-4wHCA24KDwq/eVnAu+/+N7BEuMNN63kdN295u8Wkdc76puyig3lJdcGGne+TEjiILG34twr9rjZPOWTCwOUcDg==
+      }
+    engines: { node: ^18.18 || >=20 }
+    peerDependencies:
+      webextension-polyfill: ^0.10.0 || ^0.11.0 || ^0.12.0
+    dependencies:
+      '@metamask/json-rpc-engine': 10.0.3
+      '@metamask/json-rpc-middleware-stream': 8.0.7
+      '@metamask/object-multiplex': 2.1.0
+      '@metamask/rpc-errors': 7.0.3
+      '@metamask/safe-event-emitter': 3.1.2
+      '@metamask/utils': 11.4.2
+      detect-browser: 5.3.0
+      extension-port-stream: 4.2.0(webextension-polyfill@0.12.0)
+      fast-deep-equal: 3.1.3
+      is-stream: 2.0.1
+      readable-stream: 3.6.2
+      webextension-polyfill: 0.12.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
+  /@metamask/providers@22.1.1(webextension-polyfill@0.12.0):
+    resolution:
+      {
+        integrity: sha512-z7ODqHkbhSfG6SK9gJ/SAxS/NnfjpScKgQEHiNCPnPWK4Lx5ej8IsXieEWvssrVlQechiPrHieFim7C8drK78A==
       }
     engines: { node: ^18.18 || >=20 }
     peerDependencies:
@@ -2105,6 +2159,34 @@ packages:
     engines: { node: '>=12.0.0' }
     dev: false
 
+  /@metamask/scure-bip39@2.1.1:
+    resolution:
+      {
+        integrity: sha512-1K8aBsAqr6+8jWhguVl06n8e+zjV9sUnys+5PLyVU4mb8LbulQ60F6cq7iQys3xX/yCwKt1+7c7j2nuTEpW+ZQ==
+      }
+    engines: { node: ^16.20 || ^18.16 || >=20 }
+    dependencies:
+      '@noble/hashes': 1.3.2
+      '@scure/base': 1.1.9
+    dev: false
+
+  /@metamask/snaps-sdk@6.24.0(webextension-polyfill@0.12.0):
+    resolution:
+      {
+        integrity: sha512-1MjfKt8fsKfNLs69xWD9XNtCFstth4mGvzkfXZdm37yZn8Hu4PHE56AFvTvTlYua3zRTuEHXn1PALDGnLs6jPw==
+      }
+    engines: { node: ^18.16 || >=20 }
+    dependencies:
+      '@metamask/key-tree': 10.1.1
+      '@metamask/providers': 22.1.1(webextension-polyfill@0.12.0)
+      '@metamask/rpc-errors': 7.0.3
+      '@metamask/superstruct': 3.2.1
+      '@metamask/utils': 11.4.2
+    transitivePeerDependencies:
+      - supports-color
+      - webextension-polyfill
+    dev: false
+
   /@metamask/superstruct@3.2.1:
     resolution:
       {
@@ -2127,6 +2209,26 @@ packages:
       '@types/debug': 4.1.12
       debug: 4.4.1
       lodash.memoize: 4.1.2
+      pony-cause: 2.1.11
+      semver: 7.7.2
+      uuid: 9.0.1
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
+  /@metamask/utils@9.3.0:
+    resolution:
+      {
+        integrity: sha512-w8CVbdkDrVXFJbfBSlDfafDR6BAkpDmv1bC1UJVCoVny5tW2RKAdn9i68Xf7asYT4TnUhl/hN4zfUiKQq9II4g==
+      }
+    engines: { node: '>=16.0.0' }
+    dependencies:
+      '@ethereumjs/tx': 4.2.0
+      '@metamask/superstruct': 3.2.1
+      '@noble/hashes': 1.8.0
+      '@scure/base': 1.2.6
+      '@types/debug': 4.1.12
+      debug: 4.4.1
       pony-cause: 2.1.11
       semver: 7.7.2
       uuid: 9.0.1
@@ -2303,11 +2405,22 @@ packages:
       '@noble/hashes': 1.4.0
     dev: false
 
+  /@noble/curves@1.9.7:
+    resolution:
+      {
+        integrity: sha512-gbKGcRUYIjA3/zCCNaWDciTMFI0dCkvou3TL8Zmy5Nc7sJ47a0jtOeZoTaMxkuqRo9cRhjOdZJXegxYE5FN/xw==
+      }
+    engines: { node: ^14.21.3 || >=16 }
+    dependencies:
+      '@noble/hashes': 1.8.0
+    dev: false
+
   /@noble/ed25519@1.7.5:
     resolution:
       {
         integrity: sha512-xuS0nwRMQBvSxDa7UxMb61xTiH3MxTgUfhyPUALVIe0FlOAz4sjELwyDRyUvqeEYfRSG9qNjFIycqLZppg4RSA==
       }
+    dev: false
 
   /@noble/hashes@1.3.2:
     resolution:
@@ -2331,6 +2444,7 @@ packages:
         integrity: sha512-jCs9ldd7NwzpgXDIf6P3+NrHh9/sD6CQdxHyjQI+h/6rDNo88ypBxxz45UDuZHz9r3tNz7N/VInSVoVdtXEI4A==
       }
     engines: { node: ^14.21.3 || >=16 }
+    dev: false
 
   /@nodelib/fs.scandir@2.1.5:
     resolution:
@@ -5031,6 +5145,7 @@ packages:
       {
         integrity: sha512-M7uio8Zt++eg3jPj+rHMfCC+IuygQHHCOU+IYsVtik6FWjuYpVt/+MRKcgsAMHh8mMFAwnB+Bs+mTrFiXjMzKg==
       }
+    dev: false
 
   /base64-js@1.5.1:
     resolution:
@@ -5215,6 +5330,7 @@ packages:
       }
     dependencies:
       base-x: 5.0.1
+    dev: false
 
   /bs58check@4.0.0:
     resolution:
@@ -5224,6 +5340,7 @@ packages:
     dependencies:
       '@noble/hashes': 1.8.0
       bs58: 6.0.0
+    dev: false
 
   /buffer-crc32@0.2.13:
     resolution:
@@ -5283,6 +5400,7 @@ packages:
     requiresBuild: true
     dependencies:
       node-gyp-build: 4.8.4
+    dev: false
     optional: true
 
   /builtin-modules@3.3.0:
@@ -6073,6 +6191,7 @@ packages:
       {
         integrity: sha512-YpgQiITW3JXGntzdUmyUR1V812Hn8T1YVXhCu+wO3OpS4eU9l4YdD3qjyiKdV6mvV29zapkMeD390UVEf2lkUg==
       }
+    dev: true
 
   /decode-named-character-reference@1.2.0:
     resolution:
@@ -6404,6 +6523,7 @@ packages:
         integrity: sha512-uBq4egWHTcTt33a72vpSG0z3HnPuIl6NqYcTrKEg2azoEyl2hpW0zqlxysq2pK9HlDIHyHyakeYaYnSAwd8bow==
       }
     engines: { node: '>=12' }
+    dev: false
 
   /dunder-proto@1.0.1:
     resolution:
@@ -7246,6 +7366,7 @@ packages:
       {
         integrity: sha512-GWkBvjiSZK87ELrYOSESUYeVIc9mvLLf/nXalMOS5dYrgZq9o5OVkbZAVM06CVxYsCwH9BDZFPlQTlPA1j4ahA==
       }
+    dev: false
 
   /events@3.3.0:
     resolution:
@@ -7316,7 +7437,7 @@ packages:
     peerDependencies:
       webextension-polyfill: ^0.10.0 || ^0.11.0 || ^0.12.0
     dependencies:
-      readable-stream: 3.6.2
+      readable-stream: 4.7.0
       webextension-polyfill: 0.12.0
     dev: false
 
@@ -7875,6 +7996,7 @@ packages:
       {
         integrity: sha512-MnG7N936zcKTco4Jd2PX2U96Kf9PxygAPKBug+74LHzmHXmceN16MmRcdgZv+DGef/S9YvQAfRsNCn4cjf9yyQ==
       }
+    dev: false
 
   /gopd@1.2.0:
     resolution:
@@ -7902,6 +8024,7 @@ packages:
       {
         integrity: sha512-y1tS3BBIoiVSzKTDF3Hm7E8hV2n7YY7pO0Uo7depfWJqKzWE+SKr0jvHNIJsJJYILQlpYShpi/DRJJMbosgDMQ==
       }
+    dev: false
 
   /has-bigints@1.1.0:
     resolution:
@@ -9033,6 +9156,7 @@ packages:
         integrity: sha512-pDo3lu8Jhfjqls6GkMgpahsF9kCyayhgykjyLMNFTKWrpVdAQtYyB4muAMWozBB4ig/dtWAmsMxLEI8wuz+DYQ==
       }
     deprecated: This package is deprecated. Use require('node:util').isDeepStrictEqual instead.
+    dev: false
 
   /lodash.memoize@4.1.2:
     resolution:
@@ -9849,6 +9973,7 @@ packages:
         integrity: sha512-LA4ZjwlnUblHVgq0oBF3Jl/6h/Nvs5fzBLwdEF4nuxnFdsfajde4WfxtJr3CaiH+F6ewcIB/q4jQ4UzPyid+CQ==
       }
     hasBin: true
+    dev: false
 
   /node-releases@2.0.19:
     resolution:
@@ -11479,13 +11604,6 @@ packages:
     dependencies:
       loose-envify: 1.4.0
 
-  /secure-random@1.1.2:
-    resolution:
-      {
-        integrity: sha512-H2bdSKERKdBV1SwoqYm6C0y+9EA94v6SUBOWO8kDndc4NoUih7Dv6Tsgma7zO1lv27wIvjlD0ZpMQk7um5dheQ==
-      }
-    dev: false
-
   /semver@6.3.1:
     resolution:
       {
@@ -12762,6 +12880,7 @@ packages:
     requiresBuild: true
     dependencies:
       node-gyp-build: 4.8.4
+    dev: false
     optional: true
 
   /util-deprecate@1.0.2:
@@ -12796,6 +12915,7 @@ packages:
       {
         integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==
       }
+    deprecated: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
     hasBin: true
     dev: false
 
@@ -12814,6 +12934,7 @@ packages:
       {
         integrity: sha512-cXEIW6cfr15lFv563k4GuVuW/fiwjknytD37jIOLSdSWuOI6WnO/oKwmP2FQTU2l01LP8/M5TSAJpzUaGe3uWg==
       }
+    dev: false
 
   /vfile-message@4.0.2:
     resolution:

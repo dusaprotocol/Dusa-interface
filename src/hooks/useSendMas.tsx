@@ -1,5 +1,10 @@
 import { useState, useContext } from 'react';
-import { Mas, Operation, Provider } from '@massalabs/massa-web3';
+import {
+  Mas,
+  Operation,
+  OperationStatus,
+  Provider
+} from '@massalabs/massa-web3';
 import { toast } from 'react-toastify';
 import TxToast from 'components/TxToast';
 import { AccountWrapperContext } from 'context/AccountWrapperContext';
@@ -91,41 +96,37 @@ export const useSendMas = (props: SendMasProps) => {
     try {
       const formattedAmount = printBigintIsh(MASSA, amount);
       const description = `${formattedAmount} MAS sent to ${getWalletName(recipient)}`;
-      _tx
+      const status = await _tx
         .waitSpeculativeExecution()
-        .then((status) => {
-          if (status === 2) {
-            setSuccess(true);
-            toast.dismiss(pendingToast);
-            toast.success(<TxToast title={description} txId={txId} />);
-            setIsTxPending(false);
+        .catch(() => OperationStatus.NotFound);
+      if (
+        status !== OperationStatus.SpeculativeSuccess &&
+        status !== OperationStatus.Success
+      )
+        throw new Error(
+          status === OperationStatus.SpeculativeError ||
+          status === OperationStatus.Error
+            ? 'Transfer reverted'
+            : 'Transfer status could not be confirmed. Check your wallet history before retrying.'
+        );
 
-            if (props.onTxConfirmed) props.onTxConfirmed();
+      setSuccess(true);
+      toast.dismiss(pendingToast);
+      toast.success(<TxToast title={description} txId={txId} />);
+      setIsTxPending(false);
 
-            refetch(['balances']);
+      if (props.onTxConfirmed) props.onTxConfirmed();
 
-            addToRecentTransactions(
-              {
-                ...tx,
-                status: 'confirmed',
-                description
-              },
-              signerAddress
-            );
-          } else {
-            addToRecentTransactions(
-              {
-                ...tx,
-                status: 'failed',
-                description: `Transfer failed - status: ${status}`
-              },
-              signerAddress
-            );
-          }
-        })
-        .catch((waitError) => {
-          throw waitError;
-        });
+      refetch(['balances']);
+
+      addToRecentTransactions(
+        {
+          ...tx,
+          status: 'confirmed',
+          description
+        },
+        signerAddress
+      );
 
       setTxEvents([]);
     } catch (err: any) {

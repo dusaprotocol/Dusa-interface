@@ -49,6 +49,12 @@ const NETWORK_INFOS_TIMEOUT = 20_000;
 const SIGN_TIMEOUT = 300_000; // leaves the user time to type their password
 const SIMULATION_TIMEOUT = 30_000; // read-only call, no user interaction needed
 
+// Since MIP-0002, WMAS (MRC20 0.1.0) charges the caller for a new balance or
+// allowance entry, and reverts with this when the coins sent do not cover it
+const SPENT_MORE_COINS_THAN_SENT = 'SPENT_MORE_COINS_THAN_SENT';
+const notEnoughStorageCoinsMsg =
+  'The transaction did not send enough MAS to pay for storage';
+
 interface ExecuteSCData {
   byteCode: Uint8Array;
   datastore: Map<Uint8Array, Uint8Array>;
@@ -313,6 +319,8 @@ export const useSendTransaction = (props: SendTransactionProps) => {
             )
           ) {
             err.message = 'Insufficient MAS balance to cover gas fees';
+          } else if (err.message.includes(SPENT_MORE_COINS_THAN_SENT)) {
+            err.message = notEnoughStorageCoinsMsg;
           }
           console.error(err);
           setIsConfirmPending(false);
@@ -421,6 +429,8 @@ export const useSendTransaction = (props: SendTransactionProps) => {
             throw new Error('Transaction deadline exceeded');
           case 'LBRouter__InsufficientAmountOut':
             throw new Error('Insufficient amount out');
+          case SPENT_MORE_COINS_THAN_SENT:
+            throw new Error(notEnoughStorageCoinsMsg);
           default:
             throw new Error(errorName);
         }
